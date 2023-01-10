@@ -150,6 +150,7 @@ public class Utilisateur implements Serializable {
 	}
 
 	
+	
 	/**
 	 * @param email the email to set
 	 */
