@@ -38,8 +38,8 @@ public Categorie() {
  */
 public Categorie(int noCategorie, String libelle) {
 	super();
-	this.noCategorie = noCategorie;
-	this.libelle = libelle;
+	this.setNoCategorie(noCategorie);;
+	this.setLibelle(libelle);
 }
 /**
  * Getter pour noCategorie.

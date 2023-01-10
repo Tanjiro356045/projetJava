@@ -19,7 +19,7 @@ public class Enchere implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 5817939532954582995L;
-	private LocalDate dateEchre;
+	private LocalDate dateEchere;
 	private int montant_enchere;
 	
 	/**
@@ -28,9 +28,9 @@ public class Enchere implements Serializable {
 	 * @param montant_enchere
 	 */
 	
-	public Enchere(LocalDate dateEchre, int montant_enchere) {
+	public Enchere(LocalDate dateEchere, int montant_enchere) {
 		super();
-		this.setDateEchre(dateEchre);
+		this.setDateEchre(dateEchere);
 		this.setMontant_enchere(montant_enchere);
 	}
 	/**
@@ -44,14 +44,14 @@ public class Enchere implements Serializable {
 	 * @return the dateEchre
 	 */
 	public LocalDate getDateEchre() {
-		return dateEchre;
+		return dateEchere;
 	}
 	/**
 	 * Setter pour dateEchre.
 	 * @param dateEchre the dateEchre to set
 	 */
 	public void setDateEchre(LocalDate dateEchre) {
-		this.dateEchre = dateEchre;
+		this.dateEchere = dateEchre;
 	}
 	/**
 	 * Getter pour montant_enchere.
@@ -72,6 +72,6 @@ public class Enchere implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Enchere [dateEchre=" + dateEchre + ", montant_enchere=" + montant_enchere + "]";
+		return "Enchere [dateEchre=" + dateEchere + ", montant_enchere=" + montant_enchere + "]";
 	}
 }
