@@ -29,7 +29,7 @@ public class Categorie implements Serializable {
 	 * Constructeur
 	 */
 	public Categorie() {
-		super();
+
 	}
 
 	/**
@@ -39,9 +39,8 @@ public class Categorie implements Serializable {
 	 * @param libelle
 	 */
 	public Categorie(int noCategorie, String libelle) {
-		super();
+		this();
 		this.setNoCategorie(noCategorie);
-		;
 		this.setLibelle(libelle);
 	}
 

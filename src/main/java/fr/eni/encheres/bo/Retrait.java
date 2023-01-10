@@ -26,7 +26,6 @@ public class Retrait implements Serializable {
 	 * @param ville
 	 */
 	public Retrait(int rue, int code_postal, String ville) {
-		super();
 		this.setCode_postal(code_postal);
 		this.setRue(rue);
 		this.setVille(ville);
@@ -35,11 +34,11 @@ public class Retrait implements Serializable {
 	 * Constructeur
 	 */
 	public Retrait() {
-		super();
+		
 	}
 
 	public Retrait(String ville) {
-		super();
+		this();
 		this.setVille(ville);
 	}
 	/**

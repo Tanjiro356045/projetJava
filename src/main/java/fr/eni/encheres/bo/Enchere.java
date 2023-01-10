@@ -29,7 +29,7 @@ public class Enchere implements Serializable {
 	 */
 	
 	public Enchere(LocalDate dateEchere, int montant_enchere) {
-		super();
+		this();
 		this.setDateEchre(dateEchere);
 		this.setMontant_enchere(montant_enchere);
 	}
@@ -37,7 +37,7 @@ public class Enchere implements Serializable {
 	 * Constructeur
 	 */
 	public Enchere() {
-		super();
+		
 	}
 	/**
 	 * Getter pour dateEchre.
