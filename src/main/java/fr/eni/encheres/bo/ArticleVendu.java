@@ -29,31 +29,48 @@ public class ArticleVendu implements Serializable{
 	private int miseAPrix;
 	private int prixVente;
 	private String etatVente;
+	private int noUtilisateur;
+    private int noCategorie;
 	private List <Enchere> listeEncheres = new ArrayList<Enchere>();
 	
 	/** Constructeurs de classe **/
 	// Constructeur par défaut
 	public ArticleVendu() {
 	}
-		
+	
+	// Constructeur avec tous les champs sauf numéro article
+		public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres,
+				LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente, int noUtilisateur,
+				int noCategorie) {
+			this();
+			this.setNomArticle(nomArticle);
+			this.setDescription(description);
+			this.setDateDebutEncheres(dateDebutEncheres);
+			this.setDateFinEncheres(dateFinEncheres);
+			this.setMiseAPrix(miseAPrix);
+			this.setPrixVente(prixVente);
+			this.setEtatVente(etatVente);
+			this.setNoUtilisateur(noUtilisateur);
+			this.setNoCategorie(noCategorie);
+		}
+	
+	// Constructeur avec tous les champs
 	public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente) {
+			LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente, int noUtilisateur,
+			int noCategorie) {
 		this();
 		this.setNoArticle(noArticle);
 		this.setNomArticle(nomArticle);
 		this.setDescription(description);
 		this.setDateDebutEncheres(dateDebutEncheres);
 		this.setDateFinEncheres(dateFinEncheres);
-		this.setEtatVente(etatVente);
-	}
-	
-	public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, String etatVente) {
-		this();
 		this.setMiseAPrix(miseAPrix);
 		this.setPrixVente(prixVente);
-	}	
-	
+		this.setEtatVente(etatVente);
+		this.setNoUtilisateur(noUtilisateur);
+		this.setNoCategorie(noCategorie);
+	}
+
 	
 	// Getters + setters
 	/**
@@ -182,8 +199,35 @@ public class ArticleVendu implements Serializable{
 	public void setEtatVente(String etatVente) {
 		this.etatVente = etatVente;
 	}
-	
-		
+				
+	/**
+	 * @return the noUtilisateur
+	 */
+	public int getNoUtilisateur() {
+		return noUtilisateur;
+	}
+
+	/**
+	 * @param noUtilisateur the noUtilisateur to set
+	 */
+	public void setNoUtilisateur(int noUtilisateur) {
+		this.noUtilisateur = noUtilisateur;
+	}
+
+	/**
+	 * @return the noCategorie
+	 */
+	public int getNoCategorie() {
+		return noCategorie;
+	}
+
+	/**
+	 * @param noCategorie the noCategorie to set
+	 */
+	public void setNoCategorie(int noCategorie) {
+		this.noCategorie = noCategorie;
+	}
+
 	/**
 	 * @return the listeEncheres
 	 */
