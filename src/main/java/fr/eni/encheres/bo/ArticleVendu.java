@@ -31,7 +31,7 @@ public class ArticleVendu implements Serializable{
 	private String etatVente;
 	private int noUtilisateur;
     private int noCategorie;
-	private List <Enchere> listeEncheres = new ArrayList<Enchere>();
+	//private List <Enchere> listeEncheres = new ArrayList<Enchere>();
 	
 	/** Constructeurs de classe **/
 	// Constructeur par défaut
@@ -231,16 +231,16 @@ public class ArticleVendu implements Serializable{
 	/**
 	 * @return the listeEncheres
 	 */
-	public List<Enchere> getListeEncheres() {
-		return listeEncheres;
-	}
-
-	/**
-	 * @param listeEncheres the listeEncheres to set
-	 */
-	public void setListeEncheres(List<Enchere> listeEncheres) {
-		this.listeEncheres = listeEncheres;
-	}
+//	public List<Enchere> getListeEncheres() {
+//		return listeEncheres;
+//	}
+//
+//	/**
+//	 * @param listeEncheres the listeEncheres to set
+//	 */
+//	public void setListeEncheres(List<Enchere> listeEncheres) {
+//		this.listeEncheres = listeEncheres;
+//	}
 
 	
 	// Méthode d'affichage toString
