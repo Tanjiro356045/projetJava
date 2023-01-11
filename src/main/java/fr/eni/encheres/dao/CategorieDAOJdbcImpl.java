@@ -6,6 +6,7 @@ package fr.eni.encheres.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,23 +73,92 @@ public class CategorieDAOJdbcImpl implements CategorieDAO{
 			return categorie;
 		}
 		
-
 		@Override
 		public void update(Categorie data) {
-			// TODO Auto-generated method stub
-			
+			try (Connection cnx = ConnectionProvider.getConnection()){
+				PreparedStatement pstmt = cnx.prepareStatement(UPDATE_CATEGORIE);
+				pstmt.setString(1, data.getLibelle());
+				pstmt.setInt(2, data.getNoCategorie());
+				
+				pstmt.executeUpdate();
+				
+				pstmt.close();
+				cnx.close();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				BusinessException businessException = new BusinessException();
+				//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
+				//throw businessException;
+			}
 		}
 
 		@Override
 		public void insert(Categorie data) {
-			// TODO Auto-generated method stub
-			
+			try (Connection cnx = ConnectionProvider.getConnection()) {
+				PreparedStatement pstmt = cnx.prepareStatement(INSERT_CATEGORIE, Statement.RETURN_GENERATED_KEYS);
+				pstmt.setString(1, data.getLibelle());
+
+				int nbRows = pstmt.executeUpdate();
+
+				if (nbRows == 1) {
+					ResultSet rs = pstmt.getGeneratedKeys();
+					if (rs.next()) {
+						data.setNoCategorie(rs.getInt(1));
+					}
+				}
+				pstmt.close();
+				cnx.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				BusinessException businessException = new BusinessException();
+				//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
+				//throw businessException;
+			}
 		}
 
 		@Override
-		public void delete(int idCategorie) {
-			// TODO Auto-generated method stub
-			
+		public void delete(int no_categorie) {
+			try (Connection cnx = ConnectionProvider.getConnection()){
+				PreparedStatement pstmt = cnx.prepareStatement(DELETE_CATEGORIE);
+				
+				pstmt.setInt(1, no_categorie);
+				pstmt.executeUpdate();
+				
+				pstmt.close();
+				cnx.close();				
+			} catch (Exception e) {
+				e.printStackTrace();
+				BusinessException businessException = new BusinessException();
+				//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
+				//throw businessException;
+			}
 		}
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 }
