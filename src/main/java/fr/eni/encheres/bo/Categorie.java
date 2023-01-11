@@ -17,12 +17,11 @@ import java.util.List;
 public class Categorie implements Serializable {
 
 	/**
-		 * 
+		 * Attributs de classe
 		 */
 	private static final long serialVersionUID = 1L;
 	private int noCategorie; // numer
 	private String libelle;
-
 	private List<ArticleVendu> articles = new ArrayList<ArticleVendu>();
 
 	/**
