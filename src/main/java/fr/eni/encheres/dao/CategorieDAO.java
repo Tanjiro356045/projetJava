@@ -19,7 +19,7 @@ public interface CategorieDAO {
 
 	
 	// Définition des méthodes de CRUD
-	public Categorie selectById(int no_categorie);
+	public Categorie selectById(int noCategorie);
 
 	public List<Categorie> selectAll();
 
@@ -27,6 +27,6 @@ public interface CategorieDAO {
 
 	public void insert(Categorie data);
 
-	public void delete(int idCategorie);
+	public void delete(int noCategorie);
 
 }
