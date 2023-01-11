@@ -52,11 +52,11 @@ public class CategorieDAOJdbcImpl implements CategorieDAO{
 		}
 		
 		@Override
-		public Categorie selectById(int no_categorie) {
+		public Categorie selectById(int noCategorie) {
 			Categorie categorie = new Categorie();
 			try (Connection cnx = ConnectionProvider.getConnection()) {
 				PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_ID);
-				pstmt.setInt(1, no_categorie);
+				pstmt.setInt(1, noCategorie);
 				ResultSet rs = pstmt.executeQuery();
 
 				if (rs.next()) {
@@ -118,11 +118,11 @@ public class CategorieDAOJdbcImpl implements CategorieDAO{
 		}
 
 		@Override
-		public void delete(int no_categorie) {
+		public void delete(int noCategorie) {
 			try (Connection cnx = ConnectionProvider.getConnection()){
 				PreparedStatement pstmt = cnx.prepareStatement(DELETE_CATEGORIE);
 				
-				pstmt.setInt(1, no_categorie);
+				pstmt.setInt(1, noCategorie);
 				pstmt.executeUpdate();
 				
 				pstmt.close();
@@ -134,31 +134,5 @@ public class CategorieDAOJdbcImpl implements CategorieDAO{
 				//throw businessException;
 			}
 		}
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 }
