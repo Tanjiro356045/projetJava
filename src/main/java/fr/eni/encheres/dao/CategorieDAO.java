@@ -6,6 +6,7 @@ package fr.eni.encheres.dao;
 import java.util.List;
 
 import fr.eni.encheres.bo.Categorie;
+import fr.eni.encheres.exception.BusinessException;
 
 /**
  * Interface en charge de gérer la DAO des catégories d'articles. 
@@ -25,8 +26,14 @@ public interface CategorieDAO {
 
 	public void update(Categorie data);
 
-	public void insert(Categorie data);
+	//public void insert(Categorie data);
 
 	public void delete(int noCategorie);
+
+	/**
+	 * @param libelle
+	 * @return
+	 */
+	public Categorie insert(String libelle) throws BusinessException;
 
 }
