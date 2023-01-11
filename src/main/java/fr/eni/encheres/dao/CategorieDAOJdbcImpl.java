@@ -9,12 +9,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.eni.ecole.courses.bo.Article;
-import fr.eni.ecole.courses.bo.ListeCourse;
 import fr.eni.ecole.courses.dao.CodesResultatDAL;
-import fr.eni.ecole.courses.dao.ConnectionProvider;
-import fr.eni.ecole.courses.exception.BusinessException;
 import fr.eni.encheres.bo.Categorie;
+import fr.eni.encheres.exception.BusinessException;
 
 /**
  * Classe en charge de 
@@ -38,59 +35,42 @@ public class CategorieDAOJdbcImpl implements CategorieDAO{
 		@Override
 		public List<Categorie> selectAll() {
 			List<Categorie> listeCategories = new ArrayList<Categorie>();
-			try (Connection cnx = ConnectionProvider.getConnection())
-			{
+			try (Connection cnx = ConnectionProvider.getConnection()) {
 				PreparedStatement pstmt = cnx.prepareStatement(SELECT_ALL);
 				ResultSet rs = pstmt.executeQuery();
-				while(rs.next()) {
-					listeCategories.add(new Categorie(rs.getInt("no_categorie"),rs.getString("libelle")));
+				while (rs.next()) {
+					listeCategories.add(new Categorie(rs.getInt("no_categorie"), rs.getString("libelle")));
 				}
-			}catch(Exception e) {
+				cnx.close();
+			} catch (Exception e) {
 				e.printStackTrace();
-				//BusinessException businessException = new BusinessException();
+				BusinessException businessException = new BusinessException();
 				//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
 				//throw businessException;
 			}
 			return listeCategories;
 		}
 		
-		
 		@Override
 		public Categorie selectById(int no_categorie) {
 			Categorie categorie = new Categorie();
-			try (Connection cnx = ConnectionProvider.getConnection())
-			{
+			try (Connection cnx = ConnectionProvider.getConnection()) {
 				PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_ID);
 				pstmt.setInt(1, no_categorie);
 				ResultSet rs = pstmt.executeQuery();
-				boolean premiereLigne = true;
-				while(rs.next()) {
-					if(premiereLigne) {
-						listeCourse.setId(rs.getInt("id_liste"));
-						listeCourse.setNom(rs.getString("nom_liste"));
-						premiereLigne=false;
-					}
-					if(rs.getString("nom_article")!=null) {
-						listeCourse.getArticles().add(
-								new Article(rs.getInt("id_article"),
-										rs.getString("nom_article"),
-										rs.getBoolean("coche")));
-					}
-					
+
+				if (rs.next()) {
+					rs.getInt("id_article");
+					rs.getString("nom_article");
 				}
-			}catch(Exception e) {
+				cnx.close();
+			} catch (Exception e) {
 				e.printStackTrace();
 				BusinessException businessException = new BusinessException();
-				businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
-				throw businessException;
+				//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
+				//throw businessException;
 			}
-			if(listeCourse.getId()==0) {
-				BusinessException businessException = new BusinessException();
-				businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_INEXISTANTE);
-				throw businessException;
-			}
-			
-			return listeCourse;
+			return categorie;
 		}
 		
 
