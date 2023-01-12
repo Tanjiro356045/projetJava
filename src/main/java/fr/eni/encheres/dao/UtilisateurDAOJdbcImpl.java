@@ -23,9 +23,9 @@ import fr.eni.encheres.exception.BusinessException;
 public class UtilisateurDAOJdbcImpl implements UtilisateurDAO{
 	
 	
-	private static final String SELECT_ALL = "SELECT * FROM UTILISATEUR;";
-	private static final String SELECT_BY_ID = "SELECT * FROM UTILISATEUR WHERE no_utilisateur = ?;";
-	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEUR"
+	private static final String SELECT_ALL = "SELECT * FROM UTILISATEURS;";
+	private static final String SELECT_BY_ID = "SELECT * FROM UTILISATEURS WHERE no_utilisateur = ?;";
+	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS"
 												+ "	SET pseudo = ? "
 												+ "	SET nom = ? "
 												+ "	SET prenom = ? "
@@ -38,8 +38,8 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO{
 												+ "	SET credit = ? "
 												+ "	SET administrateur = ? "
 												+ "	WHERE no_utilisateur = ?;";
-	private static final String INSERT_UTILISATEUR = "INSERT INTO UTILISATEUR(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
-	private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEUR WHERE no_utilisateur = ?;";
+	private static final String INSERT_UTILISATEUR = "INSERT INTO UTILISATEURS(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+	private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEURS WHERE no_utilisateur = ?;";
 
 	
 
