@@ -22,7 +22,6 @@ public class Categorie implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int noCategorie; // numer
 	private String libelle;
-	private List<ArticleVendu> articles = new ArrayList<ArticleVendu>();
 
 	/**
 	 * Constructeur
@@ -79,28 +78,10 @@ public class Categorie implements Serializable {
 		this.libelle = libelle;
 	}
 
-	/**
-	 * Getter pour articles.
-	 * 
-	 * @return the articles
-	 */
-	public List<ArticleVendu> getArticles() {
-		return articles;
-	}
-
-	/**
-	 * Setter pour articles.
-	 * 
-	 * @param articles the articles to set
-	 */
-	public void setArticles(List<ArticleVendu> articles) {
-		this.articles = articles;
-	}
-	
 	// To String
 	@Override
 	public String toString() {
-		return "Categorie [noCategorie=" + noCategorie + ", libelle=" + libelle + ", articles=" + articles + "]";
+		return "Categorie [noCategorie=" + noCategorie + ", libelle=" + libelle + "]";
 	}
 	
 	

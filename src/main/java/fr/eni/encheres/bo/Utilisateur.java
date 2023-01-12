@@ -30,8 +30,8 @@ public class Utilisateur implements Serializable {
 	private String motDePasse;
 	private int credit;
 	private boolean administrateur;
-	private List<ArticleVendu> articleVendu = new ArrayList<>();
-	private List<Enchere> enchere = new ArrayList<>();
+	//private List<ArticleVendu> articleVendu = new ArrayList<>();
+	//private List<Enchere> enchere = new ArrayList<>();
 
 	/**
 	 * constructeur
@@ -59,7 +59,7 @@ public class Utilisateur implements Serializable {
 	 * @param articleVendu
 	 * @param enchere
 	 */
-	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String rue,
+	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String noTelephone, String rue,
 			String codePostal, String ville, String motDePasse, int credit, boolean administrateur) {
 		this();
 		this.setNoUtilisateur(noUtilisateur);
@@ -67,6 +67,7 @@ public class Utilisateur implements Serializable {
 		this.setNom(nom);
 		this.setPrenom(prenom);
 		this.setEmail(email);
+		this.setNoTelephone(noTelephone);
 		this.setRue(rue);
 		this.setCodePostal(codePostal);
 		this.setVille(ville);
@@ -256,41 +257,43 @@ public class Utilisateur implements Serializable {
 		this.administrateur = administrateur;
 	}
 
-	/**
-	 * @return the articleVendu
-	 */
-	public List<ArticleVendu> getArticleVendu() {
-		return articleVendu;
-	}
-
-	/**
-	 * @param articleVendu the articleVendu to set
-	 */
-	public void setArticleVendu(List<ArticleVendu> articleVendu) {
-		this.articleVendu = articleVendu;
-	}
-
-	/**
-	 * @return the enchere
-	 */
-	public List<Enchere> getEnchere() {
-		return enchere;
-	}
-
-	/**
-	 * @param enchere the enchere to set
-	 */
-	public void setEnchere(List<Enchere> enchere) {
-		this.enchere = enchere;
-	}
-
 	@Override
 	public String toString() {
 		return "Utilisateur [noUtilisateur=" + noUtilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
 				+ prenom + ", email=" + email + ", noTelephone=" + noTelephone + ", rue=" + rue + ", codePostal="
 				+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
-				+ ", administrateur=" + administrateur + ", articleVendu=" + articleVendu + "]";
+				+ ", administrateur=" + administrateur + "]";
 	}
+
+	/**
+	 * @return the articleVendu
+	 */
+//	public List<ArticleVendu> getArticleVendu() {
+//		return articleVendu;
+//	}
+//
+//	/**
+//	 * @param articleVendu the articleVendu to set
+//	 */
+//	public void setArticleVendu(List<ArticleVendu> articleVendu) {
+//		this.articleVendu = articleVendu;
+//	}
+//
+//	/**
+//	 * @return the enchere
+//	 */
+//	public List<Enchere> getEnchere() {
+//		return enchere;
+//	}
+//
+//	/**
+//	 * @param enchere the enchere to set
+//	 */
+//	public void setEnchere(List<Enchere> enchere) {
+//		this.enchere = enchere;
+//	}
+
+	
 
 	
 	

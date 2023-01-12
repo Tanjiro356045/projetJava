@@ -4,4 +4,24 @@
   <welcome-file-list>
     <welcome-file>Enchere</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ServletCategorie</display-name>
+    <servlet-name>ServletCategorie</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletCategorie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletCategorie</servlet-name>
+    <url-pattern>/ServletCategorie</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletUtilisateur</display-name>
+    <servlet-name>ServletUtilisateur</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletUtilisateur</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletUtilisateur</servlet-name>
+    <url-pattern>/ServletUtilisateur</url-pattern>
+  </servlet-mapping>
 </web-app>

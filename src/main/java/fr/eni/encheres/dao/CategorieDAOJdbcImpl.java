@@ -22,13 +22,13 @@ import fr.eni.encheres.exception.BusinessException;
 public class CategorieDAOJdbcImpl implements CategorieDAO{
 	
 	// Requêtes SQL
-		private static final String SELECT_ALL = "SELECT * FROM CATEGORIES";
-		private static final String SELECT_BY_ID = "SELECT * FROM CATEGORIES WHERE no_categorie = ?";
+		private static final String SELECT_ALL = "SELECT * FROM CATEGORIES;";
+		private static final String SELECT_BY_ID = "SELECT * FROM CATEGORIES WHERE no_categorie = ?;";
 		private static final String UPDATE_CATEGORIE = "UPDATE CATEGORIES"
 													+ "	SET libelle = ? "
-													+ "	WHERE no_categorie = ?";
+													+ "	WHERE no_categorie = ?;";
 		private static final String INSERT_CATEGORIE = "INSERT INTO CATEGORIES(libelle) VALUES (?);";
-		private static final String DELETE_CATEGORIE = "DELETE FROM CATEGORIES WHERE no_categorie = ?";
+		private static final String DELETE_CATEGORIE = "DELETE FROM CATEGORIES WHERE no_categorie = ?;";
 		
 		
 		// Méthodes d'implémentation
@@ -41,7 +41,6 @@ public class CategorieDAOJdbcImpl implements CategorieDAO{
 				while (rs.next()) {
 					listeCategories.add(new Categorie(rs.getInt("no_categorie"), rs.getString("libelle")));
 				}
-				cnx.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 				BusinessException businessException = new BusinessException();
@@ -52,16 +51,17 @@ public class CategorieDAOJdbcImpl implements CategorieDAO{
 		}
 		
 		@Override
-		public Categorie selectById(int no_categorie) {
+		public Categorie selectById(int noCategorie) {
 			Categorie categorie = new Categorie();
 			try (Connection cnx = ConnectionProvider.getConnection()) {
 				PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_ID);
-				pstmt.setInt(1, no_categorie);
+				pstmt.setInt(1, noCategorie);
 				ResultSet rs = pstmt.executeQuery();
 
 				if (rs.next()) {
-					rs.getInt("id_article");
-					rs.getString("nom_article");
+					
+					categorie.setNoCategorie(rs.getInt("no_categorie"));
+					categorie.setLibelle(rs.getString("libelle"));
 				}
 				cnx.close();
 			} catch (Exception e) {
@@ -83,7 +83,6 @@ public class CategorieDAOJdbcImpl implements CategorieDAO{
 				pstmt.executeUpdate();
 				
 				pstmt.close();
-				cnx.close();
 				
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -94,39 +93,40 @@ public class CategorieDAOJdbcImpl implements CategorieDAO{
 		}
 
 		@Override
-		public void insert(Categorie data) {
+		public Categorie insert(String libelle) throws BusinessException {
+			Categorie catReturn = new Categorie();
 			try (Connection cnx = ConnectionProvider.getConnection()) {
 				PreparedStatement pstmt = cnx.prepareStatement(INSERT_CATEGORIE, Statement.RETURN_GENERATED_KEYS);
-				pstmt.setString(1, data.getLibelle());
+				pstmt.setString(1, libelle);
 
 				int nbRows = pstmt.executeUpdate();
 
 				if (nbRows == 1) {
 					ResultSet rs = pstmt.getGeneratedKeys();
 					if (rs.next()) {
-						data.setNoCategorie(rs.getInt(1));
+						catReturn.setLibelle(libelle);
+						catReturn.setNoCategorie(rs.getInt(1));
 					}
 				}
 				pstmt.close();
-				cnx.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 				BusinessException businessException = new BusinessException();
 				//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
-				//throw businessException;
+				throw businessException;
 			}
+			return catReturn;
 		}
 
 		@Override
-		public void delete(int no_categorie) {
+		public void delete(int noCategorie) {
 			try (Connection cnx = ConnectionProvider.getConnection()){
 				PreparedStatement pstmt = cnx.prepareStatement(DELETE_CATEGORIE);
 				
-				pstmt.setInt(1, no_categorie);
+				pstmt.setInt(1, noCategorie);
 				pstmt.executeUpdate();
 				
-				pstmt.close();
-				cnx.close();				
+				pstmt.close();			
 			} catch (Exception e) {
 				e.printStackTrace();
 				BusinessException businessException = new BusinessException();
@@ -134,31 +134,5 @@ public class CategorieDAOJdbcImpl implements CategorieDAO{
 				//throw businessException;
 			}
 		}
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 }

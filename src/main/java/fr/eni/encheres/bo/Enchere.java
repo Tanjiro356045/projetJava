@@ -19,6 +19,9 @@ public class Enchere implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 5817939532954582995L;
+	
+	private int noUtilisateur;
+	private int noArticle;
 	private LocalDate dateEchere;
 	private int montant_enchere;
 	
