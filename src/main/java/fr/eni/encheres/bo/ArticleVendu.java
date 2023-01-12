@@ -1,9 +1,8 @@
 package fr.eni.encheres.bo;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Classe en charge de présenter les articles vendus lors d'une enchère
@@ -24,11 +23,11 @@ public class ArticleVendu implements Serializable{
 	private int noArticle;
 	private String nomArticle;
 	private String description;
-	private LocalDate dateDebutEncheres;
-	private LocalDate dateFinEncheres;
+	private Date dateDebutEncheres;
+	private Date dateFinEncheres;
 	private int miseAPrix;
 	private int prixVente;
-	private String etatVente;
+	//private String etatVente;
 	private int noUtilisateur;
     private int noCategorie;
 	//private List <Enchere> listeEncheres = new ArrayList<Enchere>();
@@ -39,8 +38,8 @@ public class ArticleVendu implements Serializable{
 	}
 	
 	// Constructeur avec tous les champs sauf numéro article
-		public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres,
-				LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente, int noUtilisateur,
+		public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres,
+				Date dateFinEncheres, int miseAPrix, int prixVente, int noUtilisateur,
 				int noCategorie) {
 			this();
 			this.setNomArticle(nomArticle);
@@ -49,14 +48,14 @@ public class ArticleVendu implements Serializable{
 			this.setDateFinEncheres(dateFinEncheres);
 			this.setMiseAPrix(miseAPrix);
 			this.setPrixVente(prixVente);
-			this.setEtatVente(etatVente);
+			//this.setEtatVente(etatVente);
 			this.setNoUtilisateur(noUtilisateur);
 			this.setNoCategorie(noCategorie);
 		}
 	
 	// Constructeur avec tous les champs
-	public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
-			LocalDate dateFinEncheres, int miseAPrix, int prixVente, String etatVente, int noUtilisateur,
+	public ArticleVendu(int noArticle, String nomArticle, String description, Date dateDebutEncheres,
+			Date dateFinEncheres, int miseAPrix, int prixVente, int noUtilisateur,
 			int noCategorie) {
 		this();
 		this.setNoArticle(noArticle);
@@ -66,7 +65,7 @@ public class ArticleVendu implements Serializable{
 		this.setDateFinEncheres(dateFinEncheres);
 		this.setMiseAPrix(miseAPrix);
 		this.setPrixVente(prixVente);
-		this.setEtatVente(etatVente);
+		//this.setEtatVente(etatVente);
 		this.setNoUtilisateur(noUtilisateur);
 		this.setNoCategorie(noCategorie);
 	}
@@ -124,7 +123,7 @@ public class ArticleVendu implements Serializable{
 	/**
 	 * @return the dateDebutEncheres
 	 */
-	public LocalDate getDateDebutEncheres() {
+	public Date getDateDebutEncheres() {
 		return dateDebutEncheres;
 	}
 
@@ -132,7 +131,7 @@ public class ArticleVendu implements Serializable{
 	/**
 	 * @param dateDebutEncheres the dateDebutEncheres to set
 	 */
-	public void setDateDebutEncheres(LocalDate dateDebutEncheres) {
+	public void setDateDebutEncheres(Date dateDebutEncheres) {
 		this.dateDebutEncheres = dateDebutEncheres;
 	}
 
@@ -140,7 +139,7 @@ public class ArticleVendu implements Serializable{
 	/**
 	 * @return the dateFinEncheres
 	 */
-	public LocalDate getDateFinEncheres() {
+	public Date getDateFinEncheres() {
 		return dateFinEncheres;
 	}
 
@@ -148,7 +147,7 @@ public class ArticleVendu implements Serializable{
 	/**
 	 * @param dateFinEncheres the dateFinEncheres to set
 	 */
-	public void setDateFinEncheres(LocalDate dateFinEncheres) {
+	public void setDateFinEncheres(Date dateFinEncheres) {
 		this.dateFinEncheres = dateFinEncheres;
 	}
 
@@ -185,20 +184,20 @@ public class ArticleVendu implements Serializable{
 	}
 
 
-	/**
-	 * @return the etatVente
-	 */
-	public String getEtatVente() {
-		return etatVente;
-	}
-
-
-	/**
-	 * @param etatVente the etatVente to set
-	 */
-	public void setEtatVente(String etatVente) {
-		this.etatVente = etatVente;
-	}
+//	/**
+//	 * @return the etatVente
+//	 */
+//	public String getEtatVente() {
+//		return etatVente;
+//	}
+//
+//
+//	/**
+//	 * @param etatVente the etatVente to set
+//	 */
+//	public void setEtatVente(String etatVente) {
+//		this.etatVente = etatVente;
+//	}
 				
 	/**
 	 * @return the noUtilisateur
@@ -248,7 +247,7 @@ public class ArticleVendu implements Serializable{
 	public String toString() {
 		return "ArticleVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
 				+ ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix="
-				+ miseAPrix + ", prixVente=" + prixVente + ", etatVente=" + etatVente + "]";
+				+ miseAPrix + ", prixVente=" + prixVente + ", etatVente=" + "]";
 	}
 
 }

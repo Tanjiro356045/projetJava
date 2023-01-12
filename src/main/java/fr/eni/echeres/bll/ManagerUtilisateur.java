@@ -24,5 +24,9 @@ public class ManagerUtilisateur {
 		utilisateurDAO.insert(pseudo, nom, prenom, email, noTelephone, rue, codePostal, ville, motDePasse, credit,
 				administrateur);
 	}
+	
+	public void supprimerUtilisateur(int noUtilisateur) throws BusinessException{
+		this.utilisateurDAO.delete(noUtilisateur);
+	}
 
 }
