@@ -59,7 +59,7 @@ public class Utilisateur implements Serializable {
 	 * @param articleVendu
 	 * @param enchere
 	 */
-	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String rue,
+	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String noTelephone, String rue,
 			String codePostal, String ville, String motDePasse, int credit, boolean administrateur) {
 		this();
 		this.setNoUtilisateur(noUtilisateur);
@@ -67,6 +67,7 @@ public class Utilisateur implements Serializable {
 		this.setNom(nom);
 		this.setPrenom(prenom);
 		this.setEmail(email);
+		this.setNoTelephone(noTelephone);
 		this.setRue(rue);
 		this.setCodePostal(codePostal);
 		this.setVille(ville);

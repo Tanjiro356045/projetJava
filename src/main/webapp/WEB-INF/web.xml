@@ -14,4 +14,14 @@
     <servlet-name>ServletCategorie</servlet-name>
     <url-pattern>/ServletCategorie</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletUtilisateur</display-name>
+    <servlet-name>ServletUtilisateur</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletUtilisateur</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletUtilisateur</servlet-name>
+    <url-pattern>/ServletUtilisateur</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -7,6 +7,7 @@ import java.util.List;
 
 
 import fr.eni.encheres.bo.Utilisateur;
+import fr.eni.encheres.exception.BusinessException;
 
 /**
  * Classe en charge de 
@@ -22,7 +23,9 @@ public interface UtilisateurDAO {
 
 	public void update(Utilisateur data);
 
-	public void insert(Utilisateur data);
+	//public void insert(Utilisateur data);
+	
+	public Utilisateur insert(String pseudo,String nom, String prenom, String email, String noTelephone, String rue, String codePostal, String ville, String motDePasse, int credit, boolean administrateur) throws BusinessException; 
 
 	public void delete(int noUtilisateur);
 
