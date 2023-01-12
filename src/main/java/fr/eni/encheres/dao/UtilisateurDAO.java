@@ -20,9 +20,11 @@ public interface UtilisateurDAO {
 	public Utilisateur selectById(int noUtilisateur);
 
 	public List<Utilisateur> selectAll();
-
+	
 	public void update(String pseudo, String nom, String prenom, String email, String noTelephone, String rue,
-			String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur);
+			String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur) throws BusinessException;
+
+	//public void update(Utilisateur utilisateur);
 
 	// public void insert(Utilisateur data);
 

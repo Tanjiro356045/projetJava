@@ -25,10 +25,10 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	private static final String SELECT_ALL = "SELECT * FROM UTILISATEURS;";
 	private static final String SELECT_BY_ID = "SELECT * FROM UTILISATEURS WHERE no_utilisateur = ?;";
-	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS" + "	SET pseudo = ? " + "	SET nom = ? "
-			+ "	SET prenom = ? " + "	SET email = ? " + "	SET telephone = ? " + "	SET rue = ? "
-			+ "	SET code_postal = ? " + "	SET ville = ? " + "	SET mot_de_passe = ? " + "	SET credit = ? "
-			+ "	SET administrateur = ? " + "	WHERE no_utilisateur = ?;";
+	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS SET pseudo = ?, nom = ?,"
+			+ " prenom = ?, email = ?, telephone = ?, rue = ?, "
+			+ " code_postal = ?, ville = ?, mot_de_passe = ?, credit = ?, "
+			+ " administrateur = ?	WHERE no_utilisateur = ?";
 	private static final String INSERT_UTILISATEUR = "INSERT INTO UTILISATEURS(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
 	private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEURS WHERE no_utilisateur = ?;";
 
@@ -90,7 +90,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	@Override
 	public void update(String pseudo, String nom, String prenom, String email, String noTelephone, String rue,
-			String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur) {
+			String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur) throws BusinessException {
 		Utilisateur utilisateurUpdate = new Utilisateur();
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_UTILISATEUR);
@@ -106,6 +106,8 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pstmt.setInt(10, credit);
 			pstmt.setBoolean(11, administrateur);
 			pstmt.setInt(12, noUtilisateur);
+			
+			
 			pstmt.executeUpdate();
 			
 			

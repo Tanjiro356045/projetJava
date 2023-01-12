@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import fr.eni.echeres.bll.ManagerUtilisateur;
+import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.exception.BusinessException;
 
 /**
@@ -29,7 +30,7 @@ public class ServletModifierUtilisateur extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			modifierUtilisateur("TLM", "Guillo", "Bastien", "bastien.guillo@gmail.com", "0621068834", "27B square du berry", "35000", "Rennes", "Prout", 200, false, 3);
+			modifierUtilisateur("LTID", "Senatore", "Valentina", "v.senatore@gmail.com", "0621068836", "27 square du berry", "35200", "Rennnes", "Proute", 200, false, 3);
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,8 +46,8 @@ public class ServletModifierUtilisateur extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	protected void modifierUtilisateur(String pseudo, String nom, String prenom, String email, String noTelephone,
-			String rue, String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur)
+	protected void modifierUtilisateur(String pseudo, String nom, String prenom, String email, String noTelephone, String rue,
+			String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur)
 			throws BusinessException {
 		
 		ManagerUtilisateur mngr = new ManagerUtilisateur();

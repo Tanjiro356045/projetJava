@@ -3,6 +3,7 @@
  */
 package fr.eni.echeres.bll;
 
+import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dao.DAOFactory;
 import fr.eni.encheres.dao.UtilisateurDAO;
 import fr.eni.encheres.exception.BusinessException;
@@ -29,12 +30,10 @@ public class ManagerUtilisateur {
 		this.utilisateurDAO.delete(noUtilisateur);
 	}
 
-	public void modifierUtilisateur(String pseudo, String nom, String prenom, String email, String noTelephone,
-			String rue, String codePostal, String ville, String motDePasse, int credit, boolean administrateur,
-			int noUtilisateur) throws BusinessException {
+	public void modifierUtilisateur (String pseudo, String nom, String prenom, String email, String noTelephone, String rue,
+			String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur) throws BusinessException {
 
-		utilisateurDAO.update(pseudo, nom, prenom, email, noTelephone, rue, codePostal, ville, motDePasse, credit,
-				administrateur, noUtilisateur);
+		utilisateurDAO.update(pseudo, nom, prenom, email, noTelephone, rue, codePostal, ville, motDePasse, credit, administrateur, noUtilisateur);
 	}
 
 }
