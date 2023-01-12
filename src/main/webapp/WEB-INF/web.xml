@@ -24,17 +24,28 @@
     <servlet-name>ServletUtilisateur</servlet-name>
     <url-pattern>/ServletUtilisateur</url-pattern>
   </servlet-mapping>
-<!--   <servlet>
+  <servlet>
     <description></description>
-<<<<<< HEAD
-    <display-name>ServletCreationArticle</display-name>
-    <servlet-name>ServletCreationArticle</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletCreationArticle</servlet-class>
+    <display-name>ServletCreationUtilisateur</display-name>
+    <servlet-name>ServletCreationUtilisateur</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletCreationUtilisateur</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ServletCreationArticle</servlet-name>
-    <url-pattern>/ServletCreationArticle</url-pattern>
-=======
+    <servlet-name>ServletCreationUtilisateur</servlet-name>
+    <url-pattern>/ServletCreationUtilisateur</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletModifierUtilisateur</display-name>
+    <servlet-name>ServletModifierUtilisateur</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletModifierUtilisateur</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletModifierUtilisateur</servlet-name>
+    <url-pattern>/ServletModifierUtilisateur</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>ServletSupprimerUtilisateur</display-name>
     <servlet-name>ServletSupprimerUtilisateur</servlet-name>
     <servlet-class>fr.eni.encheres.servlet.ServletSupprimerUtilisateur</servlet-class>
@@ -42,6 +53,6 @@
   <servlet-mapping>
     <servlet-name>ServletSupprimerUtilisateur</servlet-name>
     <url-pattern>/ServletSupprimerUtilisateur</url-pattern>
->>>>>>> branch 'master' of https://github.com/Tanjiro356045/projetJava.git
-  </servlet-mapping> -->
+  </servlet-mapping>
+
 </web-app>

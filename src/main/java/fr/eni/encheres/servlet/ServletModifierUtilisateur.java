@@ -11,15 +11,15 @@ import fr.eni.echeres.bll.ManagerUtilisateur;
 import fr.eni.encheres.exception.BusinessException;
 
 /**
- * Servlet implementation class ServletSupprimerUtilisateur
+ * Servlet implementation class ServletModifierUtilisateur
  */
-public class ServletSupprimerUtilisateur extends HttpServlet {
+public class ServletModifierUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletSupprimerUtilisateur() {
+    public ServletModifierUtilisateur() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +29,7 @@ public class ServletSupprimerUtilisateur extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			supprimerUtilisateur(2);
+			modifierUtilisateur("TLM", "Guillo", "Bastien", "bastien.guillo@gmail.com", "0621068834", "27B square du berry", "35000", "Rennes", "Prout", 200, false, 3);
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,12 +45,14 @@ public class ServletSupprimerUtilisateur extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	protected void supprimerUtilisateur(int noUtilisateur) throws BusinessException {
+	protected void modifierUtilisateur(String pseudo, String nom, String prenom, String email, String noTelephone,
+			String rue, String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur)
+			throws BusinessException {
 		
 		ManagerUtilisateur mngr = new ManagerUtilisateur();
 		
-		mngr.supprimerUtilisateur(noUtilisateur);
-	}
+		mngr.modifierUtilisateur(pseudo, nom,  prenom, email,  noTelephone,
+				rue, codePostal, ville, motDePasse, credit, administrateur, noUtilisateur);
 	}
 
-
+}
