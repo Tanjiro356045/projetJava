@@ -24,4 +24,14 @@
     <servlet-name>ServletUtilisateur</servlet-name>
     <url-pattern>/ServletUtilisateur</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletSupprimerUtilisateur</display-name>
+    <servlet-name>ServletSupprimerUtilisateur</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletSupprimerUtilisateur</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletSupprimerUtilisateur</servlet-name>
+    <url-pattern>/ServletSupprimerUtilisateur</url-pattern>
+  </servlet-mapping>
 </web-app>

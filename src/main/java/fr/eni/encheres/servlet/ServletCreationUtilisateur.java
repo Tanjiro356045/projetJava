@@ -12,13 +12,13 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ServletUtilisateur
  */
-public class ServletUtilisateur extends HttpServlet {
+public class ServletCreationUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletUtilisateur() {
+    public ServletCreationUtilisateur() {
         super();
         // TODO Auto-generated constructor stub
     }
