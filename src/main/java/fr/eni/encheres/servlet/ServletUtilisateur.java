@@ -5,6 +5,7 @@ import java.io.IOException;
 import fr.eni.echeres.bll.ManagerUtilisateur;
 import fr.eni.encheres.exception.BusinessException;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ServletUtilisateur
  */
+@WebServlet("/createLogin")
 public class ServletUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,12 +30,22 @@ public class ServletUtilisateur extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			creationUtilisateur("TLM", "Guillo", "Bastien", "bastien.guillo@gmail.com", "0621068834", "27B square du berry", "35000", "Rennes", "Prout", 100, true);
+//			creationUtilisateur("TLM", "Guillo", "Bastien", "bastien.guillo@gmail.com", "0621068834", "27B square du berry", "35000", "Rennes", "Prout", 100, true);
+			creationUtilisateur(request.getParameter("pseudo"),
+								request.getParameter("nom"),
+								request.getParameter("prenom"),
+								request.getParameter("email"),
+								request.getParameter("telephones"),
+								request.getParameter("adresse"),
+								request.getParameter("codepost"),
+								request.getParameter("ville"),
+								request.getParameter("password"),
+								100, true);
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("/WEB-INF/jsp/createLogin.jsp").forward(request, response);
 	}
 
 	/**
