@@ -24,4 +24,14 @@
     <servlet-name>ServletUtilisateur</servlet-name>
     <url-pattern>/ServletUtilisateur</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletCreationArticle</display-name>
+    <servlet-name>ServletCreationArticle</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletCreationArticle</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletCreationArticle</servlet-name>
+    <url-pattern>/ServletCreationArticle</url-pattern>
+  </servlet-mapping>
 </web-app>
