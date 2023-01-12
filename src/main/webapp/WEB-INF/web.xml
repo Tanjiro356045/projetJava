@@ -4,8 +4,6 @@
   <welcome-file-list>
     <welcome-file>Enchere</welcome-file>
   </welcome-file-list>
-<<<<<<< HEAD
-=======
   <servlet>
     <description></description>
     <display-name>ServletCategorie</display-name>
@@ -16,7 +14,7 @@
     <servlet-name>ServletCategorie</servlet-name>
     <url-pattern>/ServletCategorie</url-pattern>
   </servlet-mapping>
-  <servlet>
+   <servlet>
     <description></description>
     <display-name>ServletUtilisateur</display-name>
     <servlet-name>ServletUtilisateur</servlet-name>
