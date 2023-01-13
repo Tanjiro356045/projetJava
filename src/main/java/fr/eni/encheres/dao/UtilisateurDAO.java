@@ -21,6 +21,8 @@ public interface UtilisateurDAO {
 
 	public List<Utilisateur> selectAll();
 	
+	public Utilisateur selectByPseudo(String pseudo) throws BusinessException;
+	
 	public void update(String pseudo, String nom, String prenom, String email, String noTelephone, String rue,
 			String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur) throws BusinessException;
 

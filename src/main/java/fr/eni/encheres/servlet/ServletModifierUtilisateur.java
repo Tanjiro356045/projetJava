@@ -30,7 +30,7 @@ public class ServletModifierUtilisateur extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			modifierUtilisateur("LTID", "Senatore", "Valentina", "v.senatore@gmail.com", "0621068836", "27 square du berry", "35200", "Rennnes", "Proute", 200, false, 3);
+			modifierUtilisateur("LTID", "Senatore", "Valentin", "v.senatore@gmail.com", "0621068836", "27 square du berry", "35200", "Rennnes", "Proute", 200, false, 3);
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
