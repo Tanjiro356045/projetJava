@@ -25,13 +25,16 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	private static final String SELECT_ALL = "SELECT * FROM UTILISATEURS;";
 	private static final String SELECT_BY_ID = "SELECT * FROM UTILISATEURS WHERE no_utilisateur = ?;";
-	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS" + "	SET pseudo = ? " + "	SET nom = ? "
-			+ "	SET prenom = ? " + "	SET email = ? " + "	SET telephone = ? " + "	SET rue = ? "
-			+ "	SET code_postal = ? " + "	SET ville = ? " + "	SET mot_de_passe = ? " + "	SET credit = ? "
-			+ "	SET administrateur = ? " + "	WHERE no_utilisateur = ?;";
+	private static final String SELECT_BY_PSEUDO ="select * FROM UTILISATEURS WHERE pseudo = ? ";
+	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS SET pseudo = ?, nom = ?,"
+			+ " prenom = ?, email = ?, telephone = ?, rue = ?, "
+			+ " code_postal = ?, ville = ?, mot_de_passe = ?, credit = ?, "
+			+ " administrateur = ?	WHERE no_utilisateur = ?";
 	private static final String INSERT_UTILISATEUR = "INSERT INTO UTILISATEURS(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
 	private static final String DELETE_UTILISATEUR = "DELETE FROM UTILISATEURS WHERE no_utilisateur = ?;";
-
+	
+	
+	
 	@Override
 	public List<Utilisateur> selectAll() {
 		List<Utilisateur> listeUtilisateur = new ArrayList<Utilisateur>();
@@ -87,10 +90,48 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		}
 		return utilisateur;
 	}
+	
+	public Utilisateur selectByPseudo (String pseudo) throws BusinessException {
+		
+		Utilisateur utilisateur = new Utilisateur();
+		try (Connection cnx = ConnectionProvider.getConnection()) {
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_PSEUDO);
+			pstmt.setString(1, pseudo);
+			ResultSet rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				utilisateur.setNoUtilisateur(rs.getInt("no_utilisateur"));
+				utilisateur.setPseudo(rs.getString("pseudo"));
+				utilisateur.setNom(rs.getString("nom"));
+				utilisateur.setPrenom(rs.getString("prenom"));
+				utilisateur.setEmail(rs.getString("email"));
+				utilisateur.setNoTelephone(rs.getString("telephone"));
+				utilisateur.setRue(rs.getString("rue"));
+				utilisateur.setCodePostal(rs.getString("code_postal"));
+				utilisateur.setVille(rs.getString("ville"));
+				utilisateur.setMotDePasse(rs.getString("mot_de_passe"));
+				utilisateur.setCredit(rs.getInt("credit"));
+				utilisateur.setAdministrateur(rs.getBoolean("administrateur"));
+			}
+
+			cnx.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			// businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
+			// throw businessException;
+		}
+		
+		
+		return utilisateur;
+		
+	}
 
 	@Override
 	public void update(String pseudo, String nom, String prenom, String email, String noTelephone, String rue,
-			String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur) {
+			String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur) throws BusinessException {
 		Utilisateur utilisateurUpdate = new Utilisateur();
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_UTILISATEUR);
@@ -106,6 +147,8 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pstmt.setInt(10, credit);
 			pstmt.setBoolean(11, administrateur);
 			pstmt.setInt(12, noUtilisateur);
+			
+			
 			pstmt.executeUpdate();
 			
 			
