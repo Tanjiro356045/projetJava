@@ -23,13 +23,13 @@ public class ArticleVendu implements Serializable{
 	private int noArticle;
 	private String nomArticle;
 	private String description;
-	private Date dateDebutEncheres;
-	private Date dateFinEncheres;
+	private LocalDate dateDebutEncheres;
+	private LocalDate dateFinEncheres;
 	private int miseAPrix;
 	private int prixVente;
 	//private String etatVente;
-	private int noUtilisateur;
-    private int noCategorie;
+	private Utilisateur utilisateur;
+    private Categorie categorie;
 	//private List <Enchere> listeEncheres = new ArrayList<Enchere>();
 	
 	/** Constructeurs de classe **/
@@ -38,9 +38,9 @@ public class ArticleVendu implements Serializable{
 	}
 	
 	// Constructeur avec tous les champs sauf numéro article
-		public ArticleVendu(String nomArticle, String description, Date dateDebutEncheres,
-				Date dateFinEncheres, int miseAPrix, int prixVente, int noUtilisateur,
-				int noCategorie) {
+		public ArticleVendu(String nomArticle, String description, LocalDate dateDebutEncheres,
+				LocalDate dateFinEncheres, int miseAPrix, int prixVente, Utilisateur utilisateur,
+				Categorie categorie) {
 			this();
 			this.setNomArticle(nomArticle);
 			this.setDescription(description);
@@ -49,14 +49,14 @@ public class ArticleVendu implements Serializable{
 			this.setMiseAPrix(miseAPrix);
 			this.setPrixVente(prixVente);
 			//this.setEtatVente(etatVente);
-			this.setNoUtilisateur(noUtilisateur);
-			this.setNoCategorie(noCategorie);
+			this.setUtilisateur(utilisateur);
+			this.setCategorie(categorie);
 		}
 	
 	// Constructeur avec tous les champs
-	public ArticleVendu(int noArticle, String nomArticle, String description, Date dateDebutEncheres,
-			Date dateFinEncheres, int miseAPrix, int prixVente, int noUtilisateur,
-			int noCategorie) {
+	public ArticleVendu(int noArticle, String nomArticle, String description, LocalDate dateDebutEncheres,
+			LocalDate dateFinEncheres, int miseAPrix, int prixVente, Utilisateur utilisateur,
+			Categorie categorie) {
 		this();
 		this.setNoArticle(noArticle);
 		this.setNomArticle(nomArticle);
@@ -66,8 +66,8 @@ public class ArticleVendu implements Serializable{
 		this.setMiseAPrix(miseAPrix);
 		this.setPrixVente(prixVente);
 		//this.setEtatVente(etatVente);
-		this.setNoUtilisateur(noUtilisateur);
-		this.setNoCategorie(noCategorie);
+		this.setUtilisateur(utilisateur);
+		this.setCategorie(categorie);
 	}
 
 	
@@ -123,7 +123,7 @@ public class ArticleVendu implements Serializable{
 	/**
 	 * @return the dateDebutEncheres
 	 */
-	public Date getDateDebutEncheres() {
+	public LocalDate getDateDebutEncheres() {
 		return dateDebutEncheres;
 	}
 
@@ -131,7 +131,7 @@ public class ArticleVendu implements Serializable{
 	/**
 	 * @param dateDebutEncheres the dateDebutEncheres to set
 	 */
-	public void setDateDebutEncheres(Date dateDebutEncheres) {
+	public void setDateDebutEncheres(LocalDate dateDebutEncheres) {
 		this.dateDebutEncheres = dateDebutEncheres;
 	}
 
@@ -139,7 +139,7 @@ public class ArticleVendu implements Serializable{
 	/**
 	 * @return the dateFinEncheres
 	 */
-	public Date getDateFinEncheres() {
+	public LocalDate getDateFinEncheres() {
 		return dateFinEncheres;
 	}
 
@@ -147,7 +147,7 @@ public class ArticleVendu implements Serializable{
 	/**
 	 * @param dateFinEncheres the dateFinEncheres to set
 	 */
-	public void setDateFinEncheres(Date dateFinEncheres) {
+	public void setDateFinEncheres(LocalDate dateFinEncheres) {
 		this.dateFinEncheres = dateFinEncheres;
 	}
 
@@ -199,33 +199,9 @@ public class ArticleVendu implements Serializable{
 //		this.etatVente = etatVente;
 //	}
 				
-	/**
-	 * @return the noUtilisateur
-	 */
-	public int getNoUtilisateur() {
-		return noUtilisateur;
-	}
 
-	/**
-	 * @param noUtilisateur the noUtilisateur to set
-	 */
-	public void setNoUtilisateur(int noUtilisateur) {
-		this.noUtilisateur = noUtilisateur;
-	}
-
-	/**
-	 * @return the noCategorie
-	 */
-	public int getNoCategorie() {
-		return noCategorie;
-	}
-
-	/**
-	 * @param noCategorie the noCategorie to set
-	 */
-	public void setNoCategorie(int noCategorie) {
-		this.noCategorie = noCategorie;
-	}
+	
+	
 
 	/**
 	 * @return the listeEncheres
@@ -241,7 +217,36 @@ public class ArticleVendu implements Serializable{
 //		this.listeEncheres = listeEncheres;
 //	}
 
+
+	/**
+	 * @return the utilisateur
+	 */
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	/**
+	 * @param utilisateur the utilisateur to set
+	 */
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+
+	/**
+	 * @return the categorie
+	 */
+	public Categorie getCategorie() {
+		return categorie;
+	}
+
+	/**
+	 * @param categorie the categorie to set
+	 */
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
+	}
 	
+
 	// Méthode d'affichage toString
 	@Override
 	public String toString() {
@@ -249,5 +254,4 @@ public class ArticleVendu implements Serializable{
 				+ ", dateDebutEncheres=" + dateDebutEncheres + ", dateFinEncheres=" + dateFinEncheres + ", miseAPrix="
 				+ miseAPrix + ", prixVente=" + prixVente + ", etatVente=" + "]";
 	}
-
 }
