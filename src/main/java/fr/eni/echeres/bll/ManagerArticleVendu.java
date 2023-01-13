@@ -9,7 +9,7 @@ import fr.eni.encheres.dao.DAOFactory;
 import fr.eni.encheres.exception.BusinessException;
 
 /**
- * Classe en charge de 
+ * Classe en charge de contrôler la BO ArticleVendu
  * @author falbricias2022
  * @date 12 janv. 2023 - 10:32:30
  * @version projet_javaEE - v0.1

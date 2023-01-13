@@ -74,12 +74,13 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 				article.setNoArticle(rs.getInt("no_article"));
 				article.setNomArticle(rs.getString("nom_article"));
 				article.setDescription(rs.getString("description"));
-				article.setDateDebutEncheres(rs.getDate("date_debut_encheres"));
-				article.setDateFinEncheres(rs.getDate("date_fin_encheres"));
+				article.setDateDebutEncheres(rs.getDate("date_debut_encheres").toLocalDate());
+				article.setDateFinEncheres(rs.getDate("date_fin_encheres").toLocalDate());
 				article.setMiseAPrix(rs.getInt("prix_initial"));
 				article.setPrixVente(rs.getInt("prix_vente"));
-				article.setNoUtilisateur(rs.getInt("no_utilisateur"));
-				article.setNoCategorie(rs.getInt("no_categorie"));
+				article.getUtilisateur().setNoUtilisateur(rs.getInt("no_utilisateur"));
+				article.getCategorie().setNoCategorie(rs.getInt("no_categorie"));
+				
 			}
 			cnx.close();
 		} catch (Exception e) {
@@ -97,8 +98,8 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 			PreparedStatement pstmt = cnx.prepareStatement(UPDATE_ARTICLE);
 			pstmt.setString(1, data.getNomArticle());
 			pstmt.setString(2, data.getDescription());
-			pstmt.setDate(3, data.getDateDebutEncheres());
-			pstmt.setDate(4, data.getDateFinEncheres());
+			pstmt.setDate(3, java.sql.Date.valueOf(data.getDateDebutEncheres()));
+			pstmt.setDate(4, java.sql.Date.valueOf(data.getDateFinEncheres()));
 			pstmt.setInt(5, data.getMiseAPrix());
 			pstmt.setInt(6, data.getPrixVente());
 			pstmt.setInt(7, data.getNoArticle());
@@ -127,8 +128,8 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 			pstmt.setDate(4, java.sql.Date.valueOf(data.getDateFinEncheres()));
 			pstmt.setInt(5, data.getMiseAPrix());
 			pstmt.setInt(6, data.getPrixVente());
-			pstmt.setInt(7, data.getUtilisateur().getNoUtilisateur);
-			pstmt.setInt(8, data.getCategorie().getNoCategorie);
+			pstmt.setInt(7, data.getUtilisateur().getNoUtilisateur());
+			pstmt.setInt(8, data.getCategorie().getNoCategorie());
 
 			int nbRows = pstmt.executeUpdate();
 
@@ -165,5 +166,6 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 //			throw businessException;
 		}
 	}
+
 	
 }
