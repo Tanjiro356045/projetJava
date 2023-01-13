@@ -26,4 +26,11 @@ public class ManagerArticleVendu {
 		articleVenduDAO.insert(article);
 	}
 	
+	
+	
+	
+	
+	
+	
+	
 }

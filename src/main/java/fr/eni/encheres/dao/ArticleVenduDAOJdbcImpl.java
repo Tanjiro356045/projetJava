@@ -7,12 +7,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.encheres.bo.ArticleVendu;
-import fr.eni.encheres.bo.Categorie;
 import fr.eni.encheres.exception.BusinessException;
 
 /**
@@ -27,14 +25,14 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 	private static final String SELECT_ALL = "SELECT * FROM ARTICLES_VENDUS;";
 	private static final String SELECT_BY_ID = "SELECT * FROM ARTICLES_VENDUS WHERE no_article = ?;";
 	private static final String UPDATE_ARTICLE = "UPDATE ARTICLES_VENDUS"
-												+ "	SET nom_article = ? "
-												+ "	SET description = ? "
-												+ "	SET date_debut_encheres = ? "
-												+ "	SET date_fin_encheres = ? "
-												+ "	SET prix_initial = ? "
-												+ "	SET prix_vente = ? "
+												+ "	SET nom_article = ?, "
+												+ "	description = ?, "
+												+ "	date_debut_encheres = ?, "
+												+ "	date_fin_encheres = ?, "
+												+ "	prix_initial = ?, "
+												+ "	prix_vente = ? "
 												+ "	WHERE no_article = ?;";
-	private static final String INSERT_ARTICLE = "INSERT INTO ARTICLES_VENDUS (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente) VALUES (?, ?, ?, ?, ?, ?);";
+	private static final String INSERT_ARTICLE = "INSERT INTO ARTICLES_VENDUS (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie) VALUES (? ,?, ?, ?, ?, ?, ?, ?);";
 	private static final String DELETE_ARTICLE = "DELETE FROM ARTICLES_VENDUS WHERE no_article = ?;";
 
 	@Override
@@ -123,10 +121,14 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 			PreparedStatement pstmt = cnx.prepareStatement(INSERT_ARTICLE, Statement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, data.getNomArticle());
 			pstmt.setString(2, data.getDescription());
-			pstmt.setDate(3, data.getDateDebutEncheres());
-			pstmt.setDate(4, data.getDateFinEncheres());
+//			pstmt.setDate(3, data.getDateDebutEncheres());
+//			pstmt.setDate(4, data.getDateFinEncheres());
+			pstmt.setDate(3, java.sql.Date.valueOf(data.getDateDebutEncheres()));
+			pstmt.setDate(4, java.sql.Date.valueOf(data.getDateFinEncheres()));
 			pstmt.setInt(5, data.getMiseAPrix());
 			pstmt.setInt(6, data.getPrixVente());
+			pstmt.setInt(7, data.getUtilisateur().getNoUtilisateur);
+			pstmt.setInt(8, data.getCategorie().getNoCategorie);
 
 			int nbRows = pstmt.executeUpdate();
 
