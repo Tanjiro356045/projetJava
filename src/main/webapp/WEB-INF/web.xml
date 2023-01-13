@@ -54,5 +54,24 @@
     <servlet-name>ServletSupprimerUtilisateur</servlet-name>
     <url-pattern>/ServletSupprimerUtilisateur</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <description></description>
+    <display-name>ServletLogIn</display-name>
+    <servlet-name>ServletLogIn</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletLogIn</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletLogIn</servlet-name>
+    <url-pattern>/ServletLogIn</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletSeConnecter</display-name>
+    <servlet-name>ServletSeConnecter</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletSeConnecter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletSeConnecter</servlet-name>
+    <url-pattern>/ServletSeConnecter</url-pattern>
+  </servlet-mapping>
 </web-app>

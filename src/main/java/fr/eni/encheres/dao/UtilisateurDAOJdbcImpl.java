@@ -25,7 +25,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	private static final String SELECT_ALL = "SELECT * FROM UTILISATEURS;";
 	private static final String SELECT_BY_ID = "SELECT * FROM UTILISATEURS WHERE no_utilisateur = ?;";
-	private static final String SELECT_BY_PSEUDO ="select * FROM UTILISATEURS WHERE pseudo = ? ";
+	private static final String SELECT_VERIFICATION ="SELECT no_utilisateur FROM UTILISATEURS WHERE pseudo = ? and mot_de_passe = ? ";
 	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS SET pseudo = ?, nom = ?,"
 			+ " prenom = ?, email = ?, telephone = ?, rue = ?, "
 			+ " code_postal = ?, ville = ?, mot_de_passe = ?, credit = ?, "
@@ -91,28 +91,22 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		return utilisateur;
 	}
 	
-	public Utilisateur selectByPseudo (String pseudo) throws BusinessException {
+	public int verificationIdentifiants (String pseudo, String motDePasse) throws BusinessException {
 		
-		Utilisateur utilisateur = new Utilisateur();
+		int id = 0;
+		
+		
+		
 		try (Connection cnx = ConnectionProvider.getConnection()) {
-			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_PSEUDO);
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_VERIFICATION);
 			pstmt.setString(1, pseudo);
+			pstmt.setString(2, motDePasse);
 			ResultSet rs = pstmt.executeQuery();
 
 			if (rs.next()) {
 
-				utilisateur.setNoUtilisateur(rs.getInt("no_utilisateur"));
-				utilisateur.setPseudo(rs.getString("pseudo"));
-				utilisateur.setNom(rs.getString("nom"));
-				utilisateur.setPrenom(rs.getString("prenom"));
-				utilisateur.setEmail(rs.getString("email"));
-				utilisateur.setNoTelephone(rs.getString("telephone"));
-				utilisateur.setRue(rs.getString("rue"));
-				utilisateur.setCodePostal(rs.getString("code_postal"));
-				utilisateur.setVille(rs.getString("ville"));
-				utilisateur.setMotDePasse(rs.getString("mot_de_passe"));
-				utilisateur.setCredit(rs.getInt("credit"));
-				utilisateur.setAdministrateur(rs.getBoolean("administrateur"));
+				id = rs.getInt("no_utilisateur");
+				System.out.println(id);
 			}
 
 			cnx.close();
@@ -124,8 +118,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			// throw businessException;
 		}
 		
-		
-		return utilisateur;
+		return id ;
 		
 	}
 

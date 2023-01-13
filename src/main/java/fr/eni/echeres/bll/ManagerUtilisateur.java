@@ -3,6 +3,8 @@
  */
 package fr.eni.echeres.bll;
 
+import java.sql.SQLException;
+
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dao.DAOFactory;
 import fr.eni.encheres.dao.UtilisateurDAO;
@@ -17,7 +19,7 @@ import fr.eni.encheres.exception.BusinessException;
  */
 public class ManagerUtilisateur {
 
-	UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
+	static UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
 
 	public Utilisateur creationUtilisateur(String pseudo, String nom, String prenom, String email, String noTelephone,
 			String rue, String codePostal, String ville, String motDePasse, int credit, boolean administrateur)
@@ -35,5 +37,24 @@ public class ManagerUtilisateur {
 
 		utilisateurDAO.update(pseudo, nom, prenom, email, noTelephone, rue, codePostal, ville, motDePasse, credit, administrateur, noUtilisateur);
 	}
+	
+	public boolean verifIdentifiants(String pseudo, String motDePasse) throws SQLException{
+      
+        boolean verif = false;
+
+        try {
+            int id = utilisateurDAO.verificationIdentifiants(pseudo, motDePasse);
+            if(id!=0) {
+                verif=true;
+            }
+        } catch (BusinessException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+ 
+
+        return verif;
+    }
 
 }
