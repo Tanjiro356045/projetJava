@@ -2,7 +2,7 @@ package fr.eni.encheres.servlet;
 
 import java.io.IOException;
 
-import fr.eni.echeres.bll.ManagerUtilisateur;
+import fr.eni.encheres.bll.ManagerUtilisateur;
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.exception.BusinessException;
 import jakarta.servlet.ServletException;

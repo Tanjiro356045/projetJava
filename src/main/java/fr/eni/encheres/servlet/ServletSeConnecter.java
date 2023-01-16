@@ -1,18 +1,15 @@
 package fr.eni.encheres.servlet;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
+import fr.eni.encheres.bll.ManagerUtilisateur;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-
-
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.sql.SQLException;
-
-import fr.eni.echeres.bll.ManagerUtilisateur;
-import fr.eni.encheres.exception.BusinessException;
 
 @WebServlet("/login")
 /**
