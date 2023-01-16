@@ -3,6 +3,7 @@
  */
 package fr.eni.encheres.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import fr.eni.encheres.bo.Utilisateur;
@@ -21,7 +22,7 @@ public interface UtilisateurDAO {
 
 	public List<Utilisateur> selectAll();
 	
-	public int verificationIdentifiants(String pseudo, String motDePasse) throws BusinessException;
+	public int verificationIdentifiants(String pseudo, String motDePasse) throws BusinessException, SQLException;
 	
 	public void update(String pseudo, String nom, String prenom, String email, String noTelephone, String rue,
 			String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur) throws BusinessException;

@@ -6,6 +6,7 @@ package fr.eni.encheres.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -91,17 +92,20 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		return utilisateur;
 	}
 	
-	public int verificationIdentifiants (String pseudo, String motDePasse) throws BusinessException {
+	public int verificationIdentifiants (String pseudo, String motDePasse) throws BusinessException, SQLException {
 		
 		int id = 0;
 		
+		 PreparedStatement pstmt = null;
+	        Connection cnx = null;
+	        ResultSet rs = null;
+	        System.out.println(pseudo + " " + motDePasse);
 		
-		
-		try (Connection cnx = ConnectionProvider.getConnection()) {
-			PreparedStatement pstmt = cnx.prepareStatement(SELECT_VERIFICATION);
+		try { cnx = ConnectionProvider.getConnection();
+			pstmt = cnx.prepareStatement(SELECT_VERIFICATION);
 			pstmt.setString(1, pseudo);
 			pstmt.setString(2, motDePasse);
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
 
@@ -109,19 +113,25 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 				System.out.println(id);
 			}
 
-			cnx.close();
+			
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			BusinessException businessException = new BusinessException();
-			// businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
-			// throw businessException;
-		}
-		
-		return id ;
-		
-	}
-
+		}finally {
+			 if (pstmt != null) {
+	                if (rs != null) {
+	                    try {
+	                        rs.close();
+	                        pstmt.close();
+	                    } catch (SQLException e) {
+	                        e.printStackTrace();
+	                    }
+	                }
+	            }
+	            cnx.close();
+	        }
+	        System.out.println(id);
+	        return id;
+	    }
 	@Override
 	public void update(String pseudo, String nom, String prenom, String email, String noTelephone, String rue,
 			String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur) throws BusinessException {
