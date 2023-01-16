@@ -30,7 +30,9 @@
 				<a href="#">Mot de passe oublié?</a>
 			</div>
 			<div>
-				<button class="btn-login" type="submit">Connexion</button>
+				<a href="">
+				<button class="btn-login" type="submit">Connexion</button>				
+				</a>
 				
 
 			</div>

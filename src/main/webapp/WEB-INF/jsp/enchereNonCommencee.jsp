@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Enchere E.N.I - Nouvelle vente</title>
-<link href="<%=request.getContextPath()%>/css/styles-inscription.css" rel="stylesheet">
+<title>Insert title here</title>
+<link href="<%=request.getContextPath()%>/css/styles-article.css" rel="stylesheet">
 </head>
-
 <body>
 
 	<form action="" method="post"
@@ -36,9 +35,10 @@
 			<label for="prixVente"><b>Prix de vente</b></label>
 			<input type="text" placeholder="Max - 10 Caractères" name="prixVente" required minlength="1" maxlength="10">
 			
-			<label for="utilisateur"><b>N° utilisateur</b></label>
-			<input type="text" placeholder="Max - 30 Caractères" name="utilisateur" required minlength="1" maxlength="30">
+			<label for="utilisateur"><b>N° utilisateur</b></label> <input type="text" placeholder="Max - 30 Caractères" name="utilisateur" required minlength="1" maxlength="30">
 
+			<div class="panelboutons">
+			
 			<a href="${pageContext.request.contextPath}/accueilConnecter">
 				<button type="submit" class="signupbtn">Enregistrer</button>
 			</a>
@@ -47,6 +47,11 @@
 				<button type="button" class="cancelbtn">Annuler</button>
 			</a>
 			
+			<a href="${pageContext.request.contextPath}/accueilConnecter">
+				<button type="button" class="warningbtn">Annuler la vente</button>
+			</a>
+			</div>
+
 		</div>
 
 		<form>

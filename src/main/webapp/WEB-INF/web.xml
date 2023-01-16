@@ -74,4 +74,44 @@
     <servlet-name>ServletSeConnecter</servlet-name>
     <url-pattern>/ServletSeConnecter</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletEnchereNonCommencee</display-name>
+    <servlet-name>ServletEnchereNonCommencee</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletEnchereNonCommencee</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletEnchereNonCommencee</servlet-name>
+    <url-pattern>/ServletEnchereNonCommencee</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletEncherir</display-name>
+    <servlet-name>ServletEncherir</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletEncherir</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletEncherir</servlet-name>
+    <url-pattern>/ServletEncherir</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletPageAcquisition</display-name>
+    <servlet-name>ServletPageAcquisition</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletPageAcquisition</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletPageAcquisition</servlet-name>
+    <url-pattern>/ServletPageAcquisition</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletDetailMaVenteFinEnchere</display-name>
+    <servlet-name>ServletDetailMaVenteFinEnchere</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletDetailMaVenteFinEnchere</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDetailMaVenteFinEnchere</servlet-name>
+    <url-pattern>/ServletDetailMaVenteFinEnchere</url-pattern>
+  </servlet-mapping>
 </web-app>

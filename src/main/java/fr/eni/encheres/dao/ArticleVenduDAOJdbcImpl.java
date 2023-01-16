@@ -38,27 +38,27 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 	@Override
 	public List<ArticleVendu> selectAll() {
 		List<ArticleVendu> listeArticles = new ArrayList<ArticleVendu>();
-		try (Connection cnx = ConnectionProvider.getConnection()) {
-			PreparedStatement pstmt = cnx.prepareStatement(SELECT_ALL);
-			ResultSet rs = pstmt.executeQuery();
-			while (rs.next()) {
-				listeArticles.add(new ArticleVendu(
-						rs.getInt("no_article"),
-						rs.getString("nom_article"),
-						rs.getString("description"),
-						rs.getDate("date_debut_encheres"),
-						rs.getDate("date_fin_encheres"),
-						rs.getInt("prix_initial"),
-						rs.getInt("prix_vente"),
-						rs.getInt("no_utilisateur"),
-						rs.getInt("no_categorie")));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			BusinessException businessException = new BusinessException();
-			//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
-			//throw businessException;
-		}
+//		try (Connection cnx = ConnectionProvider.getConnection()) {
+//			PreparedStatement pstmt = cnx.prepareStatement(SELECT_ALL);
+//			ResultSet rs = pstmt.executeQuery();
+//			while (rs.next()) {
+//				listeArticles.add(new ArticleVendu(
+//						rs.getInt("no_article"),
+//						rs.getString("nom_article"),
+//						rs.getString("description"),
+//						rs.getDate("date_debut_encheres"),
+//						rs.getDate("date_fin_encheres"),
+//						rs.getInt("prix_initial"),
+//						rs.getInt("prix_vente"),
+//						rs.getInt("no_utilisateur"),
+//						rs.getInt("no_categorie")));
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			BusinessException businessException = new BusinessException();
+//			//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
+//			//throw businessException;
+//		}
 		return listeArticles;
 	}
 	
@@ -166,6 +166,5 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 //			throw businessException;
 		}
 	}
-
 	
 }
