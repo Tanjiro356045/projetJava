@@ -152,6 +152,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 			pstmt.setInt(12, noUtilisateur);
 			
 			
+		
 			pstmt.executeUpdate();
 			
 			
