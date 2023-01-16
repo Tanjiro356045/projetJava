@@ -1,7 +1,7 @@
 /**
  * 
  */
-package fr.eni.echeres.bll;
+package fr.eni.encheres.bll;
 
 import fr.eni.encheres.bo.ArticleVendu;
 import fr.eni.encheres.dao.ArticleVenduDAO;

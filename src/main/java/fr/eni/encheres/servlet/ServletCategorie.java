@@ -1,14 +1,14 @@
 package fr.eni.encheres.servlet;
 
+
+import java.io.IOException;
+
+import fr.eni.encheres.bll.ManagerCategorie;
+import fr.eni.encheres.exception.BusinessException;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
-import fr.eni.echeres.bll.ManagerCategorie;
-import fr.eni.encheres.exception.BusinessException;
 
 /**
  * Servlet implementation class ServletCategorie

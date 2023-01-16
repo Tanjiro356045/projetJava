@@ -1,7 +1,7 @@
 /**
  * 
  */
-package fr.eni.echeres.bll;
+package fr.eni.encheres.bll;
 
 import fr.eni.encheres.dao.CategorieDAO;
 import fr.eni.encheres.dao.DAOFactory;

@@ -3,11 +3,10 @@ package fr.eni.encheres.servlet;
 import java.io.IOException;
 import java.time.LocalDate;
 
-import fr.eni.echeres.bll.ManagerArticleVendu;
+import fr.eni.encheres.bll.ManagerArticleVendu;
 import fr.eni.encheres.bo.ArticleVendu;
 import fr.eni.encheres.bo.Categorie;
 import fr.eni.encheres.bo.Utilisateur;
-import fr.eni.encheres.dao.CategorieDAO;
 import fr.eni.encheres.exception.BusinessException;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

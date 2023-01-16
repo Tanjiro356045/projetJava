@@ -1,7 +1,7 @@
 /**
  * 
  */
-package fr.eni.echeres.bll;
+package fr.eni.encheres.bll;
 
 import java.sql.SQLException;
 
