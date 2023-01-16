@@ -76,6 +76,7 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>ServletEnchereNonCommencee</display-name>
     <servlet-name>ServletEnchereNonCommencee</servlet-name>
     <servlet-class>fr.eni.encheres.servlet.ServletEnchereNonCommencee</servlet-class>
@@ -113,5 +114,14 @@
   <servlet-mapping>
     <servlet-name>ServletDetailMaVenteFinEnchere</servlet-name>
     <url-pattern>/ServletDetailMaVenteFinEnchere</url-pattern>
+=======
+    <display-name>ServletAfficherProfil</display-name>
+    <servlet-name>ServletAfficherProfil</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletAfficherProfil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletAfficherProfil</servlet-name>
+    <url-pattern>/ServletAfficherProfil</url-pattern>
+>>>>>>> branch 'master' of https://github.com/Tanjiro356045/projetJava.git
   </servlet-mapping>
 </web-app>

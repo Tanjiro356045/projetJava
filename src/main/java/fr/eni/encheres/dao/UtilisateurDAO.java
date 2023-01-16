@@ -22,6 +22,10 @@ public interface UtilisateurDAO {
 
 	public List<Utilisateur> selectAll();
 	
+	public List<Utilisateur> lister();
+	
+	public Utilisateur selectByPseudo(String pseudo) throws BusinessException;
+	
 	public int verificationIdentifiants(String pseudo, String motDePasse) throws BusinessException, SQLException;
 	
 	public void update(String pseudo, String nom, String prenom, String email, String noTelephone, String rue,

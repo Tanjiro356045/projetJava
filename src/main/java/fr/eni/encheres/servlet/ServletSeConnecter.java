@@ -41,8 +41,8 @@ public class ServletSeConnecter extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String identifiant = request.getParameter("pseudo");
-        String mdp = request.getParameter("mot_de_passe");
+        String identifiant = request.getParameter("id");
+        String mdp = request.getParameter("mdp");
 
         ManagerUtilisateur log = new ManagerUtilisateur();
         boolean verif;
