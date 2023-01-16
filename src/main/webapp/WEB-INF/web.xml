@@ -74,4 +74,14 @@
     <servlet-name>ServletSeConnecter</servlet-name>
     <url-pattern>/ServletSeConnecter</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletAfficherProfil</display-name>
+    <servlet-name>ServletAfficherProfil</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletAfficherProfil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletAfficherProfil</servlet-name>
+    <url-pattern>/ServletAfficherProfil</url-pattern>
+  </servlet-mapping>
 </web-app>

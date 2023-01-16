@@ -26,6 +26,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	private static final String SELECT_ALL = "SELECT * FROM UTILISATEURS;";
 	private static final String SELECT_BY_ID = "SELECT * FROM UTILISATEURS WHERE no_utilisateur = ?;";
+	private static final String SELECT_BY_PSEUDO = "SELECT nom, prenom, email, telephone, rue, code_postal, ville FROM UTILISATEURS WHERE pseudo = ?;";
 	private static final String SELECT_VERIFICATION ="SELECT no_utilisateur FROM UTILISATEURS WHERE pseudo = ? and mot_de_passe = ? ";
 	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS SET pseudo = ?, nom = ?,"
 			+ " prenom = ?, email = ?, telephone = ?, rue = ?, "
@@ -91,6 +92,84 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 		}
 		return utilisateur;
 	}
+	
+	@Override
+	public List<Utilisateur> lister() {
+		
+        List<Utilisateur> util = new ArrayList<Utilisateur>();
+        Connection connexion = null;
+        Statement statement = null;
+        ResultSet resultat = null;
+ 
+        try {
+            
+            statement = connexion.createStatement();
+            resultat = statement.executeQuery(SELECT_BY_PSEUDO);
+ 
+            while (resultat.next()) {
+                String pseudo = resultat.getString("pseudo");
+                String nom = resultat.getString("nom");
+                String prenom = resultat.getString("prenom");
+                String email = resultat.getString("email");
+                String telephone = resultat.getString("telephone");
+                String rue = resultat.getString("rue");
+                String codePostal = resultat.getString("code_postal");
+                String ville = resultat.getString("ville");
+ 
+                Utilisateur utilisateur = new Utilisateur();
+ 
+                utilisateur.setPseudo(pseudo);
+                utilisateur.setNom(nom);
+                utilisateur.setPrenom(prenom);
+                utilisateur.setEmail(email);
+                utilisateur.setNoTelephone(telephone);
+                utilisateur.setRue(rue);
+                utilisateur.setCodePostal(codePostal);
+                utilisateur.setVille(ville);
+ 
+ 
+                util.add(utilisateur);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return util;
+    }
+
+	
+	@Override
+	public Utilisateur selectByPseudo(String pseudo) throws BusinessException {
+		Utilisateur utilisateur = new Utilisateur();
+		try (Connection cnx = ConnectionProvider.getConnection()) {
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_PSEUDO);
+			pstmt.setString(1, pseudo);
+			ResultSet rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				
+				utilisateur.setPseudo(rs.getString("pseudo"));
+				utilisateur.setNom(rs.getString("nom"));
+				utilisateur.setPrenom(rs.getString("prenom"));
+				utilisateur.setEmail(rs.getString("email"));
+				utilisateur.setNoTelephone(rs.getString("telephone"));
+				utilisateur.setRue(rs.getString("rue"));
+				utilisateur.setCodePostal(rs.getString("code_postal"));
+				utilisateur.setVille(rs.getString("ville"));
+				
+			}
+
+			cnx.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			// businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
+			// throw businessException;
+		}
+		return utilisateur;
+	}
+	
 	
 	public int verificationIdentifiants (String pseudo, String motDePasse) throws BusinessException, SQLException {
 		

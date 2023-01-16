@@ -51,10 +51,13 @@ public class ManagerUtilisateur {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
- 
-
         return verif;
     }
+	
+	public Utilisateur afficherProfilUtilisateur(int noUtilisateur) throws BusinessException {
+		
+		return this.utilisateurDAO.selectById(noUtilisateur);
+		
+	}
 
 }
