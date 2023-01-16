@@ -21,10 +21,8 @@ public class ServletAccueilConnecter extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnected.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecter.jsp");
 		dispatcher.forward(request, response);
-		
-		
 	}
 
 
