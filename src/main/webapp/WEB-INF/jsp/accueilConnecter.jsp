@@ -1,8 +1,6 @@
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.util.Locale"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
-<%@page import="fr.eni.encheres.bll.ArticleVenduManager"%>
-<%@page import="fr.eni.encheres.bll.CategorieManager"%>
 <%@page import="fr.eni.encheres.bo.Categorie"%>
 <%@ page language="java" contentType="text/html;"
     pageEncoding="UTF-8"%>
@@ -23,14 +21,11 @@
 </head>
 <body>
   <!-- Navbar -->
- 	<%@ include file = "navbar.jsp" %>
 
     <div class="search-bar">
         
         <select class="input" id="categorie">
-          <% for(Categorie categorie : CategorieManager.selectionnerToutesLesCategories()) { %>
-            <option name="categorie" value ="<%=categorie.getId()%>"><%=categorie.getLibelle()%></option>
-            <% } %>
+        
          </select>
         
         <div class="search-box">
@@ -100,38 +95,29 @@
     </div>
     <div class="container">
         <div class="card-grid">
-            <% List<ArticleVendu> listeArticles = ArticleVenduManager.selectAllArticles(); %>
-	        <% if(listeArticles.size() != 0) { %>
-		        <% for(ArticleVendu article : listeArticles) { %> 
+     
 		              <div class="card">
 		                <div class="card-header">
-		                <% if(article.getDateFinEncheres().isAfter(LocalDate.now())) { %>
-		                    <h1><a href="<%=request.getContextPath()%>/detailVente?idArticle=<%=article.getId() %>"><%=article.getNom()%></a></h1>
-		                 <% } else {%>
-		                 	<h1><a href="<%=request.getContextPath()%>/venteRemporte?idArticle=<%=article.getId() %>"><%=article.getNom()%></a></h1>
-		                 <% } %>
 		                </div>
 		                <div class="card-img-container">
 		                    <img src="img/tournevis.jpeg" alt="">
 		                </div>
 		                <div class="card-body">
-		                   	 <div class="prix"><i class="fas fa-tag"></i><%=article.getMiseAPrix()%></div> 
-		                   	<% if(article.getPrixVente() != 0) { %> 
-		                   	 <div class="prix"><i class="fas fa-tag"></i><%=article.getPrixVente()%></div> 
-		                   	 <%} %>
+		                   	 <div class="prix"><i class="fas fa-tag"></i></div> 
+		                 
+		                   	 <div class="prix"><i class="fas fa-tag"></i>
+		                  
 		                    <div class="card-date-enchere">
-		                        <p><i class="far fa-clock"></i><%=article.getDateDebutEncheres().format(DateTimeFormatter.ofPattern("dd/MM/YYYY", Locale.FRANCE))%></p>
+		                        <p><i class="far fa-clock"></i></p>
 		                    </div>
 		                    <div class="vendeur">
-		                        <p><i class="fas fa-id-badge"></i><a href="<%=request.getContextPath()%>/profil?pseudo=<%=article.getVendeur().getPseudo() %>"><%=article.getVendeur().getPseudo()%></a></p>
+		                        <p><i class="fas fa-id-badge"></i></p>
 		                    </div>
 		                </div>
 		            </div>
-	            <% } %>
+	          
 	           
-			<% } else { %>
-             <h1>Aucun article</h1>
-            <% } %>
+		
 
         </div>
     </div>
