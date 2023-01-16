@@ -8,7 +8,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="fr.eni.encheres.bo.ArticleVendu" %>
 <%@page import="java.util.List"%>
-
+  <!-- test -->
 
 <!DOCTYPE html>
 <html lang="en">
