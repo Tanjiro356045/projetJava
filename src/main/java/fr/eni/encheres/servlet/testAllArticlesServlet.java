@@ -1,5 +1,6 @@
 package fr.eni.encheres.servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -37,7 +38,9 @@ public class testAllArticlesServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//Redirection vers la jsp
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/listes.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
