@@ -20,7 +20,7 @@ public class testAllArticlesServlet extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public testAllArticlesServlet() {
-        super();
+        super(); 
         // TODO Auto-generated constructor stub
     }
 
