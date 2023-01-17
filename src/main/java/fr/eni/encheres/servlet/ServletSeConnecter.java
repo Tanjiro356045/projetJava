@@ -56,10 +56,10 @@ public class ServletSeConnecter extends HttpServlet {
         try {
             verif = mngr.verifIdentifiants(identifiant, mdp);
             if(verif) {
-                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecter.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/accueilConnecter");
                 rd.forward(request, response);
             } else {
-                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/createLogin.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/createLogin");
                 rd.forward(request, response);
             }
         } catch (SQLException e) {

@@ -42,7 +42,7 @@
         <p> Vous n'avez pas de compte ? <a href="<%=request.getContextPath()%>/createLogin">Inscrivez-vous</a>.</p>
 
         <div class="clearfix">
-           <button onclick="location.href='<%=request.getContextPath()%>/accueilConnecter'" type="button" class="cancelbtn"> Retour a l'accueil</button>
+           <button onclick="location.href='<%=request.getContextPath()%>/accueilDeconnecter'" type="button" class="cancelbtn"> Retour a l'accueil</button>
           <button type="submit" class="signupbtn">Se connecter</button>
         </div>
       </div>
