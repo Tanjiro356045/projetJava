@@ -28,11 +28,8 @@ public class testAllArticlesServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
-		
-		ManagerArticleVendu mgArticle = new ManagerArticleVendu();
+				
+	ManagerArticleVendu mgArticle = new ManagerArticleVendu();
 		try {
 			System.out.println(mgArticle.getListeArticles());
 		} catch (BusinessException e) {
