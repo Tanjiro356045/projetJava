@@ -1,48 +1,50 @@
-<%@ page language="java" contentType="text/html;" pageEncoding="UTF-8"%>
-
-<!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eni-Ench√®res - Connexion</title>
-<link href="<%=request.getContextPath()%>/css/styles-connexion.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="<%=request.getContextPath()%>/css/styles-connexion.css" rel="stylesheet">
+    <title>Document</title>
 </head>
 <body>
-	<section>
-		<form action="<%=request.getContextPath()%>/login" method="post">
-			<div>
-				<label for="id">Identifiant: </label> <input name="id" id="id"
-					placeholder="Identifiant" required="required">
-			</div>
-			<div>
+    
+    <div class="center">
+        <form action="action_page.php" style="border:1px solid #ccc;  box-shadow: 0px 0px 10px rgb(255, 255, 255);">
+      <div class="sign">
+        <h1>Se connecter</h1>
+        <hr>
 
-				<label for="mdp">Mot De Passe: </label> <input name="mdp" id="mdp"
-					type="password" placeholder="Mot De Passe" required>
-			</div>
-			<div>
 
-				<label>Se souvenir de moi</label> <input name="Ssdm" id="Ssdm"
-					type="checkbox">
-			</div>
-			<div class="clearfix">
+        <div class="flexer">
+        <div class="gauche">
+		
+          <label for="prenom"><b>Nom du compte</b></label>
+          <input type="text" placeholder="Max - 30 CaractËres" name="nom" required minlength="1" maxlength="30">
+		<div class="form2">		
+		  <label for="nom"><b>Mot de passe</b></label>
+		  <input type="text" placeholder="Max - 30 CaractËres" name="nom" required minlength="1" maxlength="30">
+		 </div> 
+        </div>
 
-				<a href="#">Mot de passe oubli√©?</a>
-			</div>
-			<div>
-				<a href="">
-				<button class="btn-login" type="submit">Connexion</button>				
-				</a>
-				
+        <div class="dif">
+        <hr class="hr2">
+        </div>
+    
+        <div class="droite img1"></div>
+    </div>
 
-			</div>
-			<div class="clearfix">
-				<a href="<%=request.getContextPath()%>/register"><button
-						class="btn-login" type="button">Cr√©er un compte</button></a>
-			</div>
+        <label>
+          <input type="checkbox" checked="checked" name="souvenir" style="margin-bottom:15px"> souvenir de moi 
+        </label>
 
-		</form>
+        <p> Vous n'avez pas de compte ? <a href="<%=request.getContextPath()%>/createLogin">Inscrivez-vous</a>.</p>
 
-	</section>
+        <div class="clearfix">
+           <button onclick="location.href='<%=request.getContextPath()%>/accueilConnecter'" type="button" class="cancelbtn"> Retour a l'accueil</button>
+          <button type="submit" class="signupbtn">Inscription</button>
+        </div>
+      </div>
+    </form>		
+   </div> 		
 </body>
 </html>

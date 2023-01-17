@@ -72,8 +72,8 @@
         <p> En créant un compte, vous acceptez nos <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
         <div class="clearfix">
-          <button type="button" class="cancelbtn">Revenir</button>
-          <button type="submit" class="signupbtn">Inscription</button>
+          <button onclick="location.href='<%=request.getContextPath()%>/login'" type="button" class="cancelbtn"> Revenir a la page de connexion</button>
+          <button type="submit" class="signupbtn"> Inscription</button>
         </div>
       </div>
     </form>		

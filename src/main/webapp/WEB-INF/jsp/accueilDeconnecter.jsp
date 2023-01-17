@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles-home-deconnecter.css">
+     <link href="<%=request.getContextPath()%>/css/styles-home-deconnecter.css" rel="stylesheet">
     <title>Home</title>
-    <script src="java.js" defer> </script>
+    <script src="javascript/java.js" defer> </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@1,600&display=swap" rel="stylesheet">
 </head>
-<script src="https://kit.fontawesome.com/43dcc20e7a.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/43dcc20e7a.js"></script>
 <body>
 
 
@@ -23,7 +23,7 @@
 				<nav class="site-navbar">
 				  <a href="#home" class="site-logo"><img class="eni" src="https://www.niort-tech.fr/wp-content/uploads/2015/02/ENIEcole.jpg" alt=""></a>
 				  <ul>
-					<li><a href="<%=request.getContextPath()%>/login.jsp">Connexion</a></li>
+					<li><a href="<%=request.getContextPath()%>/login">Connexion</a></li>
 				  </ul>
 				  <button class="nav-toggler">
 					<span></span>
