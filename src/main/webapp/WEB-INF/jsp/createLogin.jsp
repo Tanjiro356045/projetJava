@@ -11,7 +11,8 @@
 		<body>
     
     <div class="center">
-        <form id="form_creation_login" method="post" action="${pageContext.request.contextPath}/createLogin">
+    
+        <form action="<%=request.getContextPath() %>/createLogin" method="post">
         
       <div class="sign">
         <h1>S'inscrire</h1>
