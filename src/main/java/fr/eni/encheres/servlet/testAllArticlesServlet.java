@@ -7,13 +7,16 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 import fr.eni.encheres.bll.ManagerArticleVendu;
+import fr.eni.encheres.bo.ArticleVendu;
 import fr.eni.encheres.exception.BusinessException;
 
 /**
  * Servlet implementation class testAllArticlesServlet
  */
+@WebServlet("/testAffichageAllArticles")
 public class testAllArticlesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,15 +34,18 @@ public class testAllArticlesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 				
 	ManagerArticleVendu mgArticle = new ManagerArticleVendu();
+	
 		try {
-			System.out.println(mgArticle.getListeArticles());
+			List<ArticleVendu> listeAllArticles = mgArticle.getListeArticles();
+//			System.out.println(mgArticle.getListeArticles());
+			request.setAttribute("listeArticles", listeAllArticles);
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		//Redirection vers la jsp
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/listes.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/allArticles.jsp");
 		rd.forward(request, response);
 	}
 

@@ -24,7 +24,7 @@
 				  <a href="#home" class="site-logo"><img class="eni" src="https://www.niort-tech.fr/wp-content/uploads/2015/02/ENIEcole.jpg" alt=""></a>
 				  <ul>
 					<li><a href="<%=request.getContextPath()%>/accueilConnecter">Enchères</a></li>
-					<li><a href="<%=request.getContextPath()%>/creationArticle">Vendre un article</a></li>
+					<li><a href="<%=request.getContextPath()%>/ajoutArticle">Vendre un article</a></li>
 					<li><a href="<%=request.getContextPath()%>/pageProfil">Mon profil</a></li>
 					<li><a href="<%=request.getContextPath()%>/accueilDeconnecter">Déconnexion</a></li>
 				  </ul>
