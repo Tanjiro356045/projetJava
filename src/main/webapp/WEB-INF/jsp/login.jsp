@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html;"
+    pageEncoding="UTF-8"%>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +11,7 @@
 <body>
     
     <div class="center">
-        <form action="action_page.php" style="border:1px solid #ccc;  box-shadow: 0px 0px 10px rgb(255, 255, 255);">
+        <form action="<%=request.getContextPath() %>/login" style="border:1px solid #ccc;  box-shadow: 0px 0px 10px rgb(255, 255, 255);">
       <div class="sign">
         <h1>Se connecter</h1>
         <hr>
@@ -19,10 +21,10 @@
         <div class="gauche">
 		
           <label for="prenom"><b>Nom du compte</b></label>
-          <input type="text" placeholder="Max - 30 Caractères" name="nom" required minlength="1" maxlength="30">
+          <input type="text" placeholder="Max - 30 CaractÃ¨res" name="nom" required minlength="1" maxlength="30">
 		<div class="form2">		
 		  <label for="nom"><b>Mot de passe</b></label>
-		  <input type="text" placeholder="Max - 30 Caractères" name="nom" required minlength="1" maxlength="30">
+		  <input type="text" placeholder="Max - 30 CaractÃ¨res" name="nom" required minlength="1" maxlength="30">
 		 </div> 
         </div>
 
@@ -41,7 +43,7 @@
 
         <div class="clearfix">
            <button onclick="location.href='<%=request.getContextPath()%>/accueilConnecter'" type="button" class="cancelbtn"> Retour a l'accueil</button>
-          <button type="submit" class="signupbtn">Inscription</button>
+          <button type="submit" class="signupbtn">Se connecter</button>
         </div>
       </div>
     </form>		
