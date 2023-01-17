@@ -3,6 +3,8 @@
     
 body{
 	font-family: arial, helvetica, sans-serif; 
+  background-color: #222;
+  color: rgba(255, 255, 255, 0.863);
 }
 
 body, h1, h2, h3, p, figure {
@@ -109,6 +111,12 @@ input[type=text], input[type=password] {
   
 
   @media screen and (max-width: 1200px) {
+    
+    body {
+      background-color: #222;
+      color: rgba(255, 255, 255, 0.863);
+    }
+   
     .cancelbtn, .signupbtn {
       width: 100%
     }
@@ -193,6 +201,8 @@ input[type=text], input[type=password] {
         clear: both;
         display: table;
       }
+
+      
     
 
   

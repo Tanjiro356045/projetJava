@@ -1,11 +1,26 @@
-@charset "UTF-8";
-
 
   @media screen and (min-width: 1200px)  {
     
 body{
 	font-family: arial, helvetica, sans-serif; 
+  background-color: #222;
+  color: rgba(255, 255, 255, 0.863);
 }
+
+.form-photo {
+  margin-right: 80px;
+  margin-bottom: 10%;
+}
+
+.img1 {
+  height: 400px;
+  width: 300px;
+  background-size: cover;
+  background-image: url(https://seeklogo.com/images/E/eni-logo-005CBDC522-seeklogo.com.png);
+  margin-right: 80px;
+  margin-bottom: 10%;
+}
+
 
 body, h1, h2, h3, p, figure {
 	margin: 0;
@@ -20,18 +35,25 @@ body, h1, h2, h3, p, figure {
 }
 
 .droite {
-  width: 45%;
+  width: 45%;  
 }
 
 .gauche {
   width: 45%;
+  margin-top: 130px;
 }
+
+.form2 {
+  margin-top: 50px;
+}
+
 .center {
 display: flex;
 justify-content: center;
 text-align: center;
 padding-top: 100px;
 }
+
 
 .flexer {
   display: flex;
@@ -111,6 +133,12 @@ input[type=text], input[type=password] {
   
 
   @media screen and (max-width: 1200px) {
+    
+    body {
+      background-color: #222;
+      color: rgba(255, 255, 255, 0.863);
+    }
+   
     .cancelbtn, .signupbtn {
       width: 100%
     }
@@ -133,6 +161,7 @@ input[type=text], input[type=password] {
     .center {
     display: flex;
     justify-content: center;
+    margin-top: 50px;
     }
     
     
@@ -188,6 +217,7 @@ input[type=text], input[type=password] {
     
       .sign {
         padding: 16px;
+        margin-top: 10px;
       }
       
       .clearfix::after {
@@ -195,6 +225,8 @@ input[type=text], input[type=password] {
         clear: both;
         display: table;
       }
+
+      
     
 
   
