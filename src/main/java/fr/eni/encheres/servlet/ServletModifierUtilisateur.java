@@ -3,53 +3,69 @@ package fr.eni.encheres.servlet;
 import java.io.IOException;
 
 import fr.eni.encheres.bll.ManagerUtilisateur;
+import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.exception.BusinessException;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+@WebServlet("/modifierProfil")
 /**
  * Servlet implementation class ServletModifierUtilisateur
  */
 public class ServletModifierUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletModifierUtilisateur() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ServletModifierUtilisateur() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		//<td><a class="lienDetail" href="<%=request.getContextPath()%>/ServletModifierUtilisateur?detail=<%=utilisateur.getIdentifiant()%>&<%=dateFiltre%>">détail</a></td>
+		
+		//request.getParameter("detail") => id de ton utilisateur
+		
+		//récupérer les infos de l'utilisateur
+		// faire un setAttribute
+		//affiche la page de modification
+		
+		request.getRequestDispatcher("/WEB-INF/jsp/modifierProfil.jsp").forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		try {
-			modifierUtilisateur("LTID", "Senatore", "Valentin", "v.senatore@gmail.com", "0621068836", "27 square du berry", "35200", "Rennnes", "Proute", 200, false, 3);
-		} catch (BusinessException e) {
+			modifierUtilisateur(request.getParameter("pseudo"), request.getParameter("nom"),
+					request.getParameter("prenom"), request.getParameter("email"), request.getParameter("telephone"),
+					request.getParameter("adresse"), request.getParameter("codepostal"), request.getParameter("ville"),
+					request.getParameter("password"), 100, true, Integer.valueOf(request.getParameter("id")));
+			ManagerUtilisateur mngr = new ManagerUtilisateur();
+
+		}catch( BusinessException e)
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-	
 	protected void modifierUtilisateur(String pseudo, String nom, String prenom, String email, String noTelephone, String rue,
 			String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur)
-			throws BusinessException {
-		
+					throws BusinessException {
+
 		ManagerUtilisateur mngr = new ManagerUtilisateur();
-		
+
 		mngr.modifierUtilisateur(pseudo, nom,  prenom, email,  noTelephone,
 				rue, codePostal, ville, motDePasse, credit, administrateur, noUtilisateur);
 	}

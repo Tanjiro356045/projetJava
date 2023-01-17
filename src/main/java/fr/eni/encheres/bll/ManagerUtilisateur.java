@@ -4,6 +4,7 @@
 package fr.eni.encheres.bll;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dao.DAOFactory;
@@ -54,10 +55,19 @@ public class ManagerUtilisateur {
         return verif;
     }
 	
+	
+	
 	public Utilisateur afficherProfilUtilisateur(int noUtilisateur) throws BusinessException {
 		
 		return this.utilisateurDAO.selectById(noUtilisateur);
 		
 	}
+	
+	public int idUtilisateurConnecte(String pseudo, String motDePasse) throws BusinessException, SQLException {
+		return utilisateurDAO.verificationIdentifiants(pseudo, motDePasse);
+		
+	}
+	
+	}
 
-}
+

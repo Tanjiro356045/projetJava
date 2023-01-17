@@ -5,6 +5,7 @@ import java.io.IOException;
 import fr.eni.encheres.bll.ManagerUtilisateur;
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.exception.BusinessException;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -55,6 +56,15 @@ public class ServletCreationUtilisateur extends HttpServlet {
 								100, true);
 			ManagerUtilisateur mngr = new ManagerUtilisateur();
 			
+			//mettre ton objet dans la request affiche la bone page
+
+			//request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
+			
+			// Transfert de l'affichage à la JSP
+				//RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/affichage.jsp");
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+			rd.forward(request, response);
 			System.out.println("utilisateur " + util);
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block

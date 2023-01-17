@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/login")
 /**
@@ -41,14 +42,19 @@ public class ServletSeConnecter extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String identifiant = request.getParameter("id");
+        
+    	
+    	
+    	String identifiant = request.getParameter("id");
         String mdp = request.getParameter("mdp");
+        
+        HttpSession session = request.getSession();
 
-        ManagerUtilisateur log = new ManagerUtilisateur();
+        ManagerUtilisateur mngr = new ManagerUtilisateur();
         boolean verif;
-
+        
         try {
-            verif = log.verifIdentifiants(identifiant, mdp);
+            verif = mngr.verifIdentifiants(identifiant, mdp);
             if(verif) {
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecter.jsp");
                 rd.forward(request, response);
