@@ -29,6 +29,7 @@ public class CategorieDAOJdbcImpl implements CategorieDAO{
 													+ "	WHERE no_categorie = ?;";
 		private static final String INSERT_CATEGORIE = "INSERT INTO CATEGORIES(libelle) VALUES (?);";
 		private static final String DELETE_CATEGORIE = "DELETE FROM CATEGORIES WHERE no_categorie = ?;";
+		private static final String SELECT_BY_LIBELLE = "SELECT * FROM CATEGORIES WHERE libelle = ?;";
 		
 		
 		// Méthodes d'implémentation
@@ -133,6 +134,29 @@ public class CategorieDAOJdbcImpl implements CategorieDAO{
 				//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
 				//throw businessException;
 			}
+		}
+
+		@Override
+		public Categorie selectByLibelle(String libelle) {
+			Categorie categorie = new Categorie();
+			try (Connection cnx = ConnectionProvider.getConnection()) {
+				PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_LIBELLE);
+				pstmt.setString(1, libelle);
+				ResultSet rs = pstmt.executeQuery();
+
+				if (rs.next()) {
+					
+					categorie.setNoCategorie(rs.getInt("no_categorie"));
+					categorie.setLibelle(rs.getString("libelle"));
+				}
+				cnx.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+				BusinessException businessException = new BusinessException();
+				//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
+				//throw businessException;
+			}
+			return categorie;
 		}
 		
 }

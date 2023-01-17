@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.encheres.bo.ArticleVendu;
+import fr.eni.encheres.bo.Categorie;
+import fr.eni.encheres.bo.Retrait;
+import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.exception.BusinessException;
 
 /**
@@ -38,29 +41,72 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 	@Override
 	public List<ArticleVendu> selectAll() {
 		List<ArticleVendu> listeArticles = new ArrayList<ArticleVendu>();
-//		try (Connection cnx = ConnectionProvider.getConnection()) {
-//			PreparedStatement pstmt = cnx.prepareStatement(SELECT_ALL);
-//			ResultSet rs = pstmt.executeQuery();
-//			while (rs.next()) {
-//				listeArticles.add(new ArticleVendu(
-//						rs.getInt("no_article"),
-//						rs.getString("nom_article"),
-//						rs.getString("description"),
-//						rs.getDate("date_debut_encheres"),
-//						rs.getDate("date_fin_encheres"),
-//						rs.getInt("prix_initial"),
-//						rs.getInt("prix_vente"),
-//						rs.getInt("no_utilisateur"),
-//						rs.getInt("no_categorie")));
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			BusinessException businessException = new BusinessException();
-//			//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
-//			//throw businessException;
-//		}
+		try (Connection cnx = ConnectionProvider.getConnection()) {
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_ALL);
+			ResultSet rs = pstmt.executeQuery();
+			ArticleVendu article = null;
+			while (rs.next()) {
+				article = ArticleBuilder(rs);
+				listeArticles.add(article);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
+			//throw businessException;
+		}
 		return listeArticles;
 	}
+	
+	/**
+	 * @param rs
+	 * @return
+	 */
+	public ArticleVendu ArticleBuilder(ResultSet rs) {
+		ArticleVendu articleVendu = new ArticleVendu();
+		try {
+			Utilisateur user = this.getVendeurArticle(rs.getInt("no_utilisateur"));
+			
+			Categorie categorie = this.getCategorieArticle(rs.getInt("no_categorie"));
+			
+			articleVendu.setNoArticle(rs.getInt("no_article"));	
+			articleVendu.setNomArticle(rs.getString("nom_article"));		
+			articleVendu.setDescription(rs.getString("description"));
+			articleVendu.setDateDebutEncheres((rs.getDate("date_debut_encheres").toLocalDate()));
+			articleVendu.setDateFinEncheres(rs.getDate("date_fin_encheres").toLocalDate());
+			articleVendu.setMiseAPrix(rs.getInt("prix_initial"));
+			articleVendu.setPrixVente(rs.getInt("prix_vente"));
+			articleVendu.setUtilisateur(user);
+			articleVendu.setCategorie(categorie);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return articleVendu;
+	}
+
+	private Utilisateur getVendeurArticle(int userId) {
+		UtilisateurDAO utilisateurDAO = DAOFactory.getUtilisateurDAO();
+		Utilisateur vendeurArticle = null;
+		try {
+			vendeurArticle = utilisateurDAO.selectById(userId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vendeurArticle;
+	}
+
+	private Categorie getCategorieArticle(int noCategorie) {
+		CategorieDAO categorieDAO = DAOFactory.getCategorieDAO();
+		Categorie categorieArticle = null;
+		try {
+			categorieArticle = categorieDAO.selectById(noCategorie);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return categorieArticle;
+	}
+	
 	
 	@Override
 	public ArticleVendu selectById(int noArticle) {
@@ -122,8 +168,6 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 			PreparedStatement pstmt = cnx.prepareStatement(INSERT_ARTICLE, Statement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, data.getNomArticle());
 			pstmt.setString(2, data.getDescription());
-//			pstmt.setDate(3, data.getDateDebutEncheres());
-//			pstmt.setDate(4, data.getDateFinEncheres());
 			pstmt.setDate(3, java.sql.Date.valueOf(data.getDateDebutEncheres()));
 			pstmt.setDate(4, java.sql.Date.valueOf(data.getDateFinEncheres()));
 			pstmt.setInt(5, data.getMiseAPrix());

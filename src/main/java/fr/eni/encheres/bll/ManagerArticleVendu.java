@@ -3,6 +3,8 @@
  */
 package fr.eni.encheres.bll;
 
+import java.util.List;
+
 import fr.eni.encheres.bo.ArticleVendu;
 import fr.eni.encheres.dao.ArticleVenduDAO;
 import fr.eni.encheres.dao.DAOFactory;
@@ -18,12 +20,24 @@ public class ManagerArticleVendu {
 	
 	ArticleVenduDAO articleVenduDAO = DAOFactory.getArticleVenduDAO();
 	
+	
+	
 	/**
 	 * @param libelle 
 	 * @throws BusinessException 
 	 */
 	public void ajoutArticle (ArticleVendu article) throws BusinessException {
-		articleVenduDAO.insert(article);
+		this.articleVenduDAO.insert(article);
+	}
+	
+	
+	public void supprimerArticle(int idArticle) {
+		this.articleVenduDAO.delete(idArticle);
+	}
+	
+	
+	public List<ArticleVendu> getListeArticles() throws BusinessException{
+		return this.articleVenduDAO.selectAll();
 	}
 	
 	
