@@ -69,7 +69,7 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 			if (rs.next()) {
 
-<<<<<<< HEAD
+
 				utilisateur.setNoUtilisateur(rs.getInt("no_utilisateur"));
 				utilisateur.setPseudo(rs.getString("pseudo"));
 				utilisateur.setNom(rs.getString("nom"));
@@ -81,21 +81,10 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 				utilisateur.setVille(rs.getString("ville"));
 				utilisateur.setCredit(rs.getInt("credit"));
 				utilisateur.setAdministrateur(rs.getBoolean("administrateur"));
-=======
-                utilisateur.setNoUtilisateur(rs.getInt("no_utilisateur"));
-                utilisateur.setPseudo(rs.getString("pseudo"));
-                utilisateur.setNom(rs.getString("nom"));
-                utilisateur.setPrenom(rs.getString("prenom"));
-                utilisateur.setEmail(rs.getString("email"));
-                utilisateur.setNoTelephone(rs.getString("telephone"));
-                utilisateur.setRue(rs.getString("rue"));
-                utilisateur.setCodePostal(rs.getString("code_postal"));
-                utilisateur.setVille(rs.getString("ville"));
-                utilisateur.setMotDePasse(rs.getString("mot_de_passe"));
-                utilisateur.setCredit(rs.getInt("credit"));
-                utilisateur.setAdministrateur(rs.getBoolean("administrateur"));
+
+               
 				
->>>>>>> branch 'master' of https://github.com/Tanjiro356045/projetJava
+
 			}
 
 			cnx.close();

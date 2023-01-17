@@ -2,50 +2,6 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
   <display-name>Projet ENCHERES</display-name>
   <welcome-file-list>
-<<<<<<< HEAD
-    <welcome-file>Enchere</welcome-file>
-  </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>ServletCategorie</display-name>
-    <servlet-name>ServletCategorie</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletCategorie</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletCategorie</servlet-name>
-    <url-pattern>/ServletCategorie</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ServletModifierUtilisateur</display-name>
-    <servlet-name>ServletModifierUtilisateur</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletModifierUtilisateur</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletModifierUtilisateur</servlet-name>
-    <url-pattern>/ServletModifierUtilisateur</url-pattern>
-=======
     <welcome-file>AccueilDeconnecter</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>testArticleServlet</display-name>
-    <servlet-name>testArticleServlet</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.testArticleServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>testArticleServlet</servlet-name>
-    <url-pattern>/testArticleServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>testAllArticlesServlet</display-name>
-    <servlet-name>testAllArticlesServlet</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.testAllArticlesServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>testAllArticlesServlet</servlet-name>
-    <url-pattern>/testAllArticlesServlet</url-pattern>
->>>>>>> branch 'master' of https://github.com/Tanjiro356045/projetJava
-  </servlet-mapping>
 </web-app>
