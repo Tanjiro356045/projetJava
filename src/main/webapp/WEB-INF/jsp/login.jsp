@@ -11,7 +11,8 @@
 <body>
     
     <div class="center">
-        <form action="<%=request.getContextPath() %>/login" style="border:1px solid #ccc;  box-shadow: 0px 0px 10px rgb(255, 255, 255);">
+    
+        <form action="<%=request.getContextPath() %>/login" method="post" style="border:1px solid #ccc;  box-shadow: 0px 0px 10px rgb(255, 255, 255);">
       <div class="sign">
         <h1>Se connecter</h1>
         <hr>
@@ -20,11 +21,11 @@
         <div class="flexer">
         <div class="gauche">
 		
-          <label for="prenom"><b>Nom du compte</b></label>
-          <input type="text" placeholder="Max - 30 Caractères" name="nom" required minlength="1" maxlength="30">
+          <label for="id"><b>Nom du compte</b></label>
+          <input type="text" placeholder="Max - 30 Caractères" name="id" required minlength="1" maxlength="30">
 		<div class="form2">		
-		  <label for="nom"><b>Mot de passe</b></label>
-		  <input type="text" placeholder="Max - 30 Caractères" name="nom" required minlength="1" maxlength="30">
+		  <label for="mdp"><b>Mot de passe</b></label>
+		  <input type="text" placeholder="Max - 30 Caractères" name="mdp" required minlength="1" maxlength="30">
 		 </div> 
         </div>
 
