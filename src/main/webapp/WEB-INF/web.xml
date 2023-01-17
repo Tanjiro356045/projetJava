@@ -4,24 +4,4 @@
   <welcome-file-list>
     <welcome-file>AccueilDeconnecter</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>testArticleServlet</display-name>
-    <servlet-name>testArticleServlet</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.testArticleServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>testArticleServlet</servlet-name>
-    <url-pattern>/testArticleServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>testAllArticlesServlet</display-name>
-    <servlet-name>testAllArticlesServlet</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.testAllArticlesServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>testAllArticlesServlet</servlet-name>
-    <url-pattern>/testAllArticlesServlet</url-pattern>
-  </servlet-mapping>
 </web-app>
