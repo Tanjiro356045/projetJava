@@ -2,126 +2,26 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
   <display-name>Projet ENCHERES</display-name>
   <welcome-file-list>
-    <welcome-file>Enchere</welcome-file>
+    <welcome-file>AccueilDeconnecter</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>ServletCategorie</display-name>
-    <servlet-name>ServletCategorie</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletCategorie</servlet-class>
+    <display-name>testArticleServlet</display-name>
+    <servlet-name>testArticleServlet</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.testArticleServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ServletCategorie</servlet-name>
-    <url-pattern>/ServletCategorie</url-pattern>
+    <servlet-name>testArticleServlet</servlet-name>
+    <url-pattern>/testArticleServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ServletUtilisateur</display-name>
-    <servlet-name>ServletUtilisateur</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletUtilisateur</servlet-class>
+    <display-name>testAllArticlesServlet</display-name>
+    <servlet-name>testAllArticlesServlet</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.testAllArticlesServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ServletUtilisateur</servlet-name>
-    <url-pattern>/ServletUtilisateur</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ServletCreationUtilisateur</display-name>
-    <servlet-name>ServletCreationUtilisateur</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletCreationUtilisateur</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletCreationUtilisateur</servlet-name>
-    <url-pattern>/ServletCreationUtilisateur</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ServletModifierUtilisateur</display-name>
-    <servlet-name>ServletModifierUtilisateur</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletModifierUtilisateur</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletModifierUtilisateur</servlet-name>
-    <url-pattern>/ServletModifierUtilisateur</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ServletSupprimerUtilisateur</display-name>
-    <servlet-name>ServletSupprimerUtilisateur</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletSupprimerUtilisateur</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletSupprimerUtilisateur</servlet-name>
-    <url-pattern>/ServletSupprimerUtilisateur</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ServletLogIn</display-name>
-    <servlet-name>ServletLogIn</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletLogIn</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletLogIn</servlet-name>
-    <url-pattern>/ServletLogIn</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ServletSeConnecter</display-name>
-    <servlet-name>ServletSeConnecter</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletSeConnecter</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletSeConnecter</servlet-name>
-    <url-pattern>/ServletSeConnecter</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-<<<<<<< HEAD
-    <display-name>ServletEnchereNonCommencee</display-name>
-    <servlet-name>ServletEnchereNonCommencee</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletEnchereNonCommencee</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletEnchereNonCommencee</servlet-name>
-    <url-pattern>/ServletEnchereNonCommencee</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ServletEncherir</display-name>
-    <servlet-name>ServletEncherir</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletEncherir</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletEncherir</servlet-name>
-    <url-pattern>/ServletEncherir</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ServletPageAcquisition</display-name>
-    <servlet-name>ServletPageAcquisition</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletPageAcquisition</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletPageAcquisition</servlet-name>
-    <url-pattern>/ServletPageAcquisition</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ServletDetailMaVenteFinEnchere</display-name>
-    <servlet-name>ServletDetailMaVenteFinEnchere</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletDetailMaVenteFinEnchere</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletDetailMaVenteFinEnchere</servlet-name>
-    <url-pattern>/ServletDetailMaVenteFinEnchere</url-pattern>
-=======
-    <display-name>ServletAfficherProfil</display-name>
-    <servlet-name>ServletAfficherProfil</servlet-name>
-    <servlet-class>fr.eni.encheres.servlet.ServletAfficherProfil</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ServletAfficherProfil</servlet-name>
-    <url-pattern>/ServletAfficherProfil</url-pattern>
->>>>>>> branch 'master' of https://github.com/Tanjiro356045/projetJava.git
+    <servlet-name>testAllArticlesServlet</servlet-name>
+    <url-pattern>/testAllArticlesServlet</url-pattern>
   </servlet-mapping>
 </web-app>

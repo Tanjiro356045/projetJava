@@ -36,4 +36,10 @@ public interface CategorieDAO {
 	 */
 	public Categorie insert(String libelle) throws BusinessException;
 
+	/**
+	 * @param libelle
+	 * @return
+	 */
+	public Categorie selectByLibelle(String libelle);
+
 }

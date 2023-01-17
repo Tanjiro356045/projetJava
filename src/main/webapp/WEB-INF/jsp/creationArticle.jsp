@@ -1,3 +1,5 @@
+<%@page import="fr.eni.encheres.bo.Categorie"%>
+<%@page import="fr.eni.encheres.bll.ManagerCategorie"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -23,6 +25,15 @@
 			<input type="text" placeholder="Max - 50 Caractères" name="description" required minlength="1" maxlength="50">
 			
 			<label for="categorie"><b>Catégorie</b></label> <input type="text" placeholder="Max - 30 Caractères" name="categorie" required minlength="1" maxlength="30">
+			
+			<div class="input-field"> <!--Un div peut être?-->
+          		<label for="categorie">Catégorie :</label>
+         			<select name="categorie" class="input" id="categorie">
+          		<% for(Categorie categorie : ManagerCategorie.selectAllCat()) { %>
+            	<option  value ="<%=categorie.getNoCategorie()%>"><%=categorie.getLibelle()%></option>
+            	<% } %>
+          			</select>
+       		</div>
 			
 			<label for="dateDebut"><b>Date début de l'enchère</b></label>
 			<input type="date" placeholder="Max - 10 Caractères" name="dateDebut" required minlength="1" maxlength="10">
