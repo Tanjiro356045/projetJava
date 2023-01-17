@@ -22,6 +22,7 @@ public class ServletModifierUtilisateur extends HttpServlet {
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public ServletModifierUtilisateur() {
+		
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -40,6 +41,7 @@ public class ServletModifierUtilisateur extends HttpServlet {
 		//récupérer les infos de l'utilisateur
 		// faire un setAttribute
 		//affiche la page de modification
+		
 		
 		request.getRequestDispatcher("/WEB-INF/jsp/modifierProfil.jsp").forward(request, response);
 	}
