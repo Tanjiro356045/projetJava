@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import fr.eni.encheres.bll.ManagerUtilisateur;
+import fr.eni.encheres.bo.Utilisateur;
+import fr.eni.encheres.exception.BusinessException;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -18,53 +20,83 @@ import jakarta.servlet.http.HttpSession;
  */
 public class ServletSeConnecter extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletSeConnecter() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-
-        dispatcher.forward(request, response);
-
-    }
+	public ServletSeConnecter() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-    	
-    	
-    	String identifiant = request.getParameter("id");
-        String mdp = request.getParameter("mdp");
-        
-        HttpSession session = request.getSession();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-        ManagerUtilisateur mngr = new ManagerUtilisateur();
-        boolean verif;
-        
-        try {
-            verif = mngr.verifIdentifiants(identifiant, mdp);
-            if(verif) {
-                RequestDispatcher rd = request.getRequestDispatcher("/accueilConnecter");
-                rd.forward(request, response);
-            } else {
-                RequestDispatcher rd = request.getRequestDispatcher("/createLogin");
-                rd.forward(request, response);
-            }
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+
+		dispatcher.forward(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+
+			throws ServletException, IOException {
+
+		String identifiant = request.getParameter("pseudo");
+
+		String mdp = request.getParameter("mdp");
+
+		HttpSession session = request.getSession();
+
+		ManagerUtilisateur mngr = new ManagerUtilisateur();
+
+		
+
+
+		try {
+
+			Utilisateur utilisateur = mngr.getUtilisateurByPseudoAndPassword(identifiant, mdp);
+
+			if (utilisateur != null) {
+
+
+				System.out.println("user " + utilisateur.getNoUtilisateur());
+
+				// Met un id d'utilisateur dans le contexte de session
+
+				session.setAttribute("no_utilisateur", utilisateur.getNoUtilisateur());
+				// récupérer l'id dans un contexte de session
+
+				// session.getAttribute("no_utilisateur")
+
+				RequestDispatcher rd = request.getRequestDispatcher("/accueilConnecter");
+
+				rd.forward(request, response);
+
+			} else {
+
+				RequestDispatcher rd = request.getRequestDispatcher("/createLogin");
+
+				rd.forward(request, response);
+
+			}
+
+		} catch (BusinessException e) {
+
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+
+		}
+
+	}
+
 }

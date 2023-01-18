@@ -39,34 +39,22 @@ public class ManagerUtilisateur {
 		utilisateurDAO.update(pseudo, nom, prenom, email, noTelephone, rue, codePostal, ville, motDePasse, credit, administrateur, noUtilisateur);
 	}
 	
-	public boolean verifIdentifiants(String pseudo, String motDePasse) throws SQLException{
-      
-        boolean verif = false;
-
-        try {
-            int id = utilisateurDAO.verificationIdentifiants(pseudo, motDePasse);
-            if(id!=0) {
-                verif=true;
-            }
-        } catch (BusinessException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return verif;
-    }
+	public Utilisateur getUtilisateurByPseudoAndPassword (String pseudo, String motDePasse) throws BusinessException {
+		
+		return this.utilisateurDAO.selectByPseudoAndPassword(pseudo, motDePasse);
+	}
 	
-	
-	
-	public Utilisateur afficherProfilUtilisateur(int noUtilisateur) throws BusinessException {
+	public Utilisateur getUtilisateurById(int noUtilisateur) throws BusinessException {
 		
 		return this.utilisateurDAO.selectById(noUtilisateur);
 		
 	}
 	
-	public int idUtilisateurConnecte(String pseudo, String motDePasse) throws BusinessException, SQLException {
-		return utilisateurDAO.verificationIdentifiants(pseudo, motDePasse);
+	public Utilisateur getUtilisateurByPseudo (String pseudo) throws BusinessException {
 		
+		return this.utilisateurDAO.selectByPseudo(pseudo);
 	}
+	
 	
 	}
 

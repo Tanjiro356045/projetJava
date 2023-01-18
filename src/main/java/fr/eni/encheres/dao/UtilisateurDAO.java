@@ -19,14 +19,12 @@ import fr.eni.encheres.exception.BusinessException;
 public interface UtilisateurDAO {
 
 	public Utilisateur selectById(int noUtilisateur);
+	
+	public Utilisateur selectByPseudo(String pseudo);
 
 	public List<Utilisateur> selectAll();
 	
-	public List<Utilisateur> lister();
-	
-	public Utilisateur selectByPseudo(String pseudo) throws BusinessException;
-	
-	public int verificationIdentifiants(String pseudo, String motDePasse) throws BusinessException, SQLException;
+	public Utilisateur selectByPseudoAndPassword(String pseudo, String motDePasse) throws BusinessException;
 	
 	public void update(String pseudo, String nom, String prenom, String email, String noTelephone, String rue,
 			String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur) throws BusinessException;
@@ -40,6 +38,12 @@ public interface UtilisateurDAO {
 			throws BusinessException;
 
 	public void delete(int noUtilisateur);
+
+	/**
+	 * @param pseudo
+	 * @return
+	 */
+	
 
 	/**
 	 * @param pseudo

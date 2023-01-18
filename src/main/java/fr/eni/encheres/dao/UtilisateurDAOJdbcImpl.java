@@ -26,8 +26,9 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 	private static final String SELECT_ALL = "SELECT * FROM UTILISATEURS;";
 	private static final String SELECT_BY_ID = "SELECT * FROM UTILISATEURS WHERE no_utilisateur = ?;";
-	private static final String SELECT_BY_PSEUDO = "SELECT nom, prenom, email, telephone, rue, code_postal, ville FROM UTILISATEURS WHERE pseudo = ?;";
-	private static final String SELECT_VERIFICATION ="SELECT no_utilisateur FROM UTILISATEURS WHERE pseudo = ? and mot_de_passe = ? ";
+	private static final String SELECT_BY_PSEUDO = "SELECT no_utilisateur, nom, prenom, email, telephone, rue, code_postal, ville FROM UTILISATEURS WHERE pseudo = ?;";
+	private static final String SELECT_BY_PSEUDO_AND_PASSWORD = "SELECT no_utilisateur, nom, prenom, email, telephone, rue, code_postal, "
+			+ "ville FROM UTILISATEURS WHERE (pseudo = ? or email=?) and mot_de_passe = ?;";
 	private static final String UPDATE_UTILISATEUR = "UPDATE UTILISATEURS SET pseudo = ?, nom = ?,"
 			+ " prenom = ?, email = ?, telephone = ?, rue = ?, "
 			+ " code_postal = ?, ville = ?, mot_de_passe = ?, credit = ?, "
@@ -99,52 +100,9 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	}
 	
 	@Override
-	public List<Utilisateur> lister() {
+	public Utilisateur selectByPseudo(String pseudo) {
+		Utilisateur utilisateur = null;
 		
-        List<Utilisateur> util = new ArrayList<Utilisateur>();
-        Connection connexion = null;
-        Statement statement = null;
-        ResultSet resultat = null;
- 
-        try {
-            
-            statement = connexion.createStatement();
-            resultat = statement.executeQuery(SELECT_BY_PSEUDO);
- 
-            while (resultat.next()) {
-                String pseudo = resultat.getString("pseudo");
-                String nom = resultat.getString("nom");
-                String prenom = resultat.getString("prenom");
-                String email = resultat.getString("email");
-                String telephone = resultat.getString("telephone");
-                String rue = resultat.getString("rue");
-                String codePostal = resultat.getString("code_postal");
-                String ville = resultat.getString("ville");
- 
-                Utilisateur utilisateur = new Utilisateur();
- 
-                utilisateur.setPseudo(pseudo);
-                utilisateur.setNom(nom);
-                utilisateur.setPrenom(prenom);
-                utilisateur.setEmail(email);
-                utilisateur.setNoTelephone(telephone);
-                utilisateur.setRue(rue);
-                utilisateur.setCodePostal(codePostal);
-                utilisateur.setVille(ville);
- 
- 
-                util.add(utilisateur);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return util;
-    }
-
-	
-	@Override
-	public Utilisateur selectByPseudo(String pseudo) throws BusinessException {
-		Utilisateur utilisateur = new Utilisateur();
 		try (Connection cnx = ConnectionProvider.getConnection()) {
 			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_PSEUDO);
 			pstmt.setString(1, pseudo);
@@ -152,16 +110,21 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 
 			if (rs.next()) {
 
-				
-				utilisateur.setPseudo(rs.getString("pseudo"));
+
+				utilisateur = new Utilisateur();
+				utilisateur.setPseudo(pseudo);
+				utilisateur.setNoUtilisateur(rs.getInt("no_utilisateur"));
 				utilisateur.setNom(rs.getString("nom"));
 				utilisateur.setPrenom(rs.getString("prenom"));
 				utilisateur.setEmail(rs.getString("email"));
 				utilisateur.setNoTelephone(rs.getString("telephone"));
 				utilisateur.setRue(rs.getString("rue"));
 				utilisateur.setCodePostal(rs.getString("code_postal"));
-				utilisateur.setVille(rs.getString("ville"));
+				utilisateur.setVille(rs.getString("ville"));		
+
+               
 				
+
 			}
 
 			cnx.close();
@@ -176,46 +139,40 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO {
 	}
 	
 	
-	public int verificationIdentifiants (String pseudo, String motDePasse) throws BusinessException, SQLException {
-		
-		int id = 0;
-		
-		 PreparedStatement pstmt = null;
-	        Connection cnx = null;
-	        ResultSet rs = null;
-	        System.out.println(pseudo + " " + motDePasse);
-		
-		try { cnx = ConnectionProvider.getConnection();
-			pstmt = cnx.prepareStatement(SELECT_VERIFICATION);
+	@Override
+	public Utilisateur selectByPseudoAndPassword(String pseudo, String motDePasse) throws BusinessException {
+		Utilisateur utilisateur = null;
+		try (Connection cnx = ConnectionProvider.getConnection()) {
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_PSEUDO_AND_PASSWORD);
 			pstmt.setString(1, pseudo);
-			pstmt.setString(2, motDePasse);
-			rs = pstmt.executeQuery();
+			pstmt.setString(2, pseudo);
+			pstmt.setString(3, motDePasse);
+			ResultSet rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-
-				id = rs.getInt("no_utilisateur");
-				System.out.println(id);
+				utilisateur = new Utilisateur();
+				utilisateur.setPseudo(pseudo);
+				utilisateur.setNoUtilisateur(rs.getInt("no_utilisateur"));
+				utilisateur.setNom(rs.getString("nom"));
+				utilisateur.setPrenom(rs.getString("prenom"));
+				utilisateur.setEmail(rs.getString("email"));
+				utilisateur.setNoTelephone(rs.getString("telephone"));
+				utilisateur.setRue(rs.getString("rue"));
+				utilisateur.setCodePostal(rs.getString("code_postal"));
+				utilisateur.setVille(rs.getString("ville"));		
 			}
 
-			
+			cnx.close();
 
 		} catch (Exception e) {
-		}finally {
-			 if (pstmt != null) {
-	                if (rs != null) {
-	                    try {
-	                        rs.close();
-	                        pstmt.close();
-	                    } catch (SQLException e) {
-	                        e.printStackTrace();
-	                    }
-	                }
-	            }
-	            cnx.close();
-	        }
-	        System.out.println(id);
-	        return id;
-	    }
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			// businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
+			// throw businessException;
+		}
+		return utilisateur;
+	}
+	
 	@Override
 	public void update(String pseudo, String nom, String prenom, String email, String noTelephone, String rue,
 			String codePostal, String ville, String motDePasse, int credit, boolean administrateur, int noUtilisateur) throws BusinessException {
