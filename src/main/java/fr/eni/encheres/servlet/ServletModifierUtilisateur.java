@@ -14,7 +14,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/modifierProfil")
-
 /**
  * Servlet implementation class ServletModifierUtilisateur
  */
@@ -37,7 +36,6 @@ public class ServletModifierUtilisateur extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
 		//<td><a class="lienDetail" href="<%=request.getContextPath()%>/ServletModifierUtilisateur?detail=<%=utilisateur.getIdentifiant()%>&<%=dateFiltre%>">détail</a></td>
 		
 		//request.getParameter("detail") => id de ton utilisateur
@@ -45,16 +43,44 @@ public class ServletModifierUtilisateur extends HttpServlet {
 		//récupérer les infos de l'utilisateur
 		// faire un setAttribute
 		//affiche la page de modification
+		HttpSession session = request.getSession();
+
+		int userId = (int) session.getAttribute("no_utilisateur");
 		
-		
-		request.getRequestDispatcher("/WEB-INF/jsp/modifierProfil.jsp").forward(request, response);
+		System.out.println("id : " + userId);
+
+		ManagerUtilisateur managerUtilisateur = new ManagerUtilisateur();
+
+		try {
+
+			Utilisateur user = managerUtilisateur.getUtilisateurById(userId);
+			System.out.println(managerUtilisateur.getUtilisateurById(userId));
+			request.setAttribute("user", user);
+
+			request.getRequestDispatcher("/WEB-INF/jsp/modifierProfil.jsp").forward(request, response);
+
+		} catch (BusinessException e) {
+
+			// TODO Auto-generated catch block
+
+			System.out.println(e.toString());
+
+		}
+
+		System.out.println(userId);
+
 	}
+
+		
+		
+	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		Utilisateur userId = (Utilisateur) session.getAttribute("no_utilisateur");
+
+		int userId = (int) session.getAttribute("no_utilisateur");
 		
 		try {
 
@@ -64,7 +90,7 @@ public class ServletModifierUtilisateur extends HttpServlet {
 					request.getParameter("password"), 100, true, Integer.valueOf(request.getParameter("no_utilisateur")));
 			ManagerUtilisateur mngr = new ManagerUtilisateur();
 
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/acuueilConnecter.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnecter.jsp");
 			rd.forward(request, response);
 			
 		}catch( BusinessException e)
