@@ -62,6 +62,8 @@ public class ServletModifierUtilisateur extends HttpServlet {
 		} catch (BusinessException e) {
 
 			// TODO Auto-generated catch block
+			
+		
 
 			System.out.println(e.toString());
 
