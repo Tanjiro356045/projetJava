@@ -17,12 +17,9 @@
 </head>
 <body>
 
-
     <div class="center mobile">
     <form method="post" class="width100" action="${pageContext.request.contextPath}/ajoutArticle">
         <h1 class="center modif-titre">Nouvelle vente</h1>
-
-
 
         <div class="center">
 
@@ -36,8 +33,6 @@
                 <input type="text" placeholder="Max - 50 Caractères" name="description" required minlength="1" maxlength="50">
             </div>
 
-
-
         <div class="box2">
 			<div class="input-field"> 
                 <div class="box2-cat">
@@ -48,25 +43,20 @@
             	        <option  value ="<%=categorie.getNoCategorie()%>"><%=categorie.getLibelle()%></option>
             	        <% } %>
           		        </select>
-                </div>         
+                </div>
                         <br>
                 <div class="box2-debenchere">
                           <label for="dateDebut" class="margT25-mobile box2-modif-mobile box2-modif3-mobile"><b>Début de l'enchère</b></label>
                           <input type="date" placeholder="Max - 10 Caractères" name="dateDebut" required minlength="1" maxlength="10">
-                </div>        
-                          <br> 
+                </div>
+                          <br>
                 <div class="box2-finenchere"></div>
                           <label for="dateFin" class="box2-modif-mobile box2-modif4-mobile"><b>Fin de l'enchère</b></label>
                           <input type="date" placeholder="Max - 10 Caractères" name="dateFin" required minlength="1" maxlength="10">
                 </div>
              </div>
-        </div>    
+        </div>
 			
-
-	
-			
-
-
         <div class="box3"> 
             <h1 class="center">Prix de l'article</h1>
 			<label for="prixInitial"><b class="center margT25-mobile">Mise à prix</b></label>
@@ -78,9 +68,6 @@
 			
 			<!-- <label for="utilisateur"><b class="center">N° utilisateur</b></label>
 			<input type="text" placeholder="Max - 30 Caractères" name="utilisateur" required minlength="1" maxlength="30"> -->
-
-
-
 
             <div class="box4">
                 <h1 class="center">Retrait</h1>

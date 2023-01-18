@@ -14,17 +14,17 @@ import fr.eni.encheres.bo.ArticleVendu;
 import fr.eni.encheres.exception.BusinessException;
 
 /**
- * Servlet implementation class testAllArticlesServlet
+ * Servlet implementation class ServletAllArticles
  */
-@WebServlet("/testAffichageAllArticles")
-public class testAllArticlesServlet extends HttpServlet {
+@WebServlet("/allArticles")
+public class ServletAllArticles extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-     
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public testAllArticlesServlet() {
-        super(); 
+    public ServletAllArticles() {
+        super();
         // TODO Auto-generated constructor stub
     }
 

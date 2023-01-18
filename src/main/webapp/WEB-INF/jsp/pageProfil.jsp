@@ -34,6 +34,8 @@
 	</div>
 		<button onclick="location.href='<%=request.getContextPath()%>/modifierProfil'" type="button" class="cancelbtn">Modifier</button>
 		
+		<a href="<%=request.getContextPath()%>/accueilConnecter"><button type="submit">Retour accueil</button> </a>
+		
 		
 </body>
 </html>

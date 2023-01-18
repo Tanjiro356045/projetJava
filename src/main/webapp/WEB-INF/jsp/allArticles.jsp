@@ -63,24 +63,18 @@
 								<td> <button type = "submit">Enchérir</button> </td>
 							<%
 							}
-							%>
-									
+							%>	
 						</tr>
 					<%
-					
 					}
 					 %>
-				
 				</tbody>
-			
 			<%
-			
 			}
-			
 			%>
-	
 	</table>
-		
+
+	<a href="<%=request.getContextPath()%>/accueilConnecter"><button type="submit">Retour accueil</button> </a>
 
 </body>
 </html>

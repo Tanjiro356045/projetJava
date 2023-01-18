@@ -14,7 +14,7 @@
         <form id="form_creation_login" method="post" action="${pageContext.request.contextPath}/modifierProfil">
         
       <div class="sign">
-        <h1>Modifier Son Profil</h1>
+        <h1>Modifier Mon Profil</h1>
         <p> Saisissez vos nouvelles informations.</p>
         <hr>
 

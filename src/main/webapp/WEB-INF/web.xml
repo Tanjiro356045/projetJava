@@ -4,4 +4,14 @@
   <welcome-file-list>
     <welcome-file>accueilDeconnecter</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ServletAllArticles</display-name>
+    <servlet-name>ServletAllArticles</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletAllArticles</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletAllArticles</servlet-name>
+    <url-pattern>/ServletAllArticles</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -51,7 +51,7 @@ public class ServletCreationArticle extends HttpServlet {
 		try {
 			
 			ManagerUtilisateur mgUser = new ManagerUtilisateur();
-			Utilisateur user = mgUser.afficherProfilUtilisateur(1);
+			Utilisateur user = mgUser.getUtilisateurById(1);
 			
 			ManagerCategorie mgCat = new ManagerCategorie();
 			Categorie cat = mgCat.selectCatByLibelle(request.getParameter("categorie"));
