@@ -31,4 +31,4 @@ public class ServletAccueilConnecter extends HttpServlet {
 		doGet(request, response);
 	}
 
-}
+}//t
