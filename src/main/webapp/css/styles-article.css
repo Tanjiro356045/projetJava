@@ -1,165 +1,51 @@
 
   @media screen and (min-width: 1200px)  {
     
-body{
-	font-family: arial, helvetica, sans-serif; 
-}
-
-body, h1, h2, h3, p, figure {
-	margin: 0;
-}
-
-* {
-	box-sizing: border-box; 
-}
-
-.paddingtop {
-    padding-top: 2%;
-}
-
-.droite {
-  width: 45%;
-}
-
-.gauche {
-  width: 45%;
-}
-.center {
-display: flex;
-justify-content: center;
-text-align: center;
-padding-top: 100px;
-}
-
-.flexer {
-  display: flex;
-}
-
-.bordertest {
-  border: red solid 3px;
-}
-
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-    height: 10px;
-  }
-  
-  input[type=text]:focus, input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-  
-  hr {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
-  }
-
-  .hr2 {
-      width: 3px;
-      height: 90%;
-  }
-  
-  .dif {
-     width: 20%; 
-  }
-
-  button {
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-  }
-  
-  button:hover {
-    opacity:1;
-  }
-  
-  .cancelbtn {
-    padding: 14px 20px;
-    background-color: #f44336;
-  }
-  
-  .warningbtn {
-    padding: 14px 20px;
-    background-color: #F0C300;
-  }
-  
-  .backbtn {
-  	border : 2px solid #0098d4;
-    background-color: transparent;
-    color: #0098d4;
-  }
-  
-  .backbtn:hover{
-  	background-color: #0098d4;
-  	color : white;  
-  }
-  
-  
-  .cancelbtn, .signupbtn, .warningbtn, .backbtn {
-  	font-size : 20px;
-    float: left;
-    width: 15%;
-    border-radius: 15px;
-  }
-  
-  .panelboutons{
-  	display : flex;
-  	align-items : center;
-  	justify-content: space-evenly;
-  }
-  
-
-  .sign {
-    padding: 16px;
-    width: 1000px;
-  }
-  
-  .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-
-}
-
-  @media screen and (max-width: 1200px) {
-    .cancelbtn, .signupbtn {
-      width: 100%
+    .test2 {
+        width: 100%;
     }
+
+    .center {
+        display: flex;
+        width: 100%;
+        }
+
+    .test3 {
+        width: 100%;
+    }    
+
     body{
-      font-family: arial, helvetica, sans-serif; 
+        font-family: arial, helvetica, sans-serif; 
+        background-color: #222;
+        color: rgba(255, 255, 255, 0.863);
     }
     
     body, h1, h2, h3, p, figure {
-      margin: 0;
+        margin: 0;
     }
     
     * {
-      box-sizing: border-box; 
+        box-sizing: border-box;
+        margin: 0px 
     }
     
     .paddingtop {
         padding-top: 2%;
     }
     
-    .center {
-    display: flex;
-    justify-content: center;
+   
+
+    .flexer {
+        display: flex;
     }
-    
     
     .bordertest {
       border: red solid 3px;
+      width: 100%;
+    }
+
+    .width100 {
+        width: 100%;
     }
     
     input[type=text], input[type=password] {
@@ -169,6 +55,7 @@ input[type=text], input[type=password] {
         display: inline-block;
         border: none;
         background: #f1f1f1;
+        height: 10px;
       }
       
       input[type=text]:focus, input[type=password]:focus {
@@ -180,7 +67,16 @@ input[type=text], input[type=password] {
         border: 1px solid #f1f1f1;
         margin-bottom: 25px;
       }
+    
+      .hr2 {
+          width: 3px;
+          height: 90%;
+      }
       
+      .dif {
+         width: 20%; 
+      }
+    
       button {
         background-color: #04AA6D;
         color: white;
@@ -201,14 +97,40 @@ input[type=text], input[type=password] {
         background-color: #f44336;
       }
       
-      .cancelbtn, .signupbtn {
+      .warningbtn {
+        padding: 14px 20px;
+        background-color: #F0C300;
+      }
+      
+      .backbtn {
+          border : 2px solid #0098d4;
+        background-color: transparent;
+        color: #0098d4;
+      }
+      
+      .backbtn:hover{
+          background-color: #0098d4;
+          color : white;  
+      }
+      
+      
+      .cancelbtn, .signupbtn, .warningbtn, .backbtn {
+          font-size : 20px;
         float: left;
-        width: 50%;
+        width: 15%;
+        border-radius: 15px;
+      }
+      
+      .panelboutons{
+          display : flex;
+          align-items : center;
+          justify-content: space-evenly;
       }
       
     
       .sign {
         padding: 16px;
+        width: 1000px;
       }
       
       .clearfix::after {
@@ -216,6 +138,235 @@ input[type=text], input[type=password] {
         clear: both;
         display: table;
       }
- 
-  
-  }
+    
+    }
+    
+      @media screen and (max-width: 1200px) {
+        
+        .modif-titre {
+            font-size: 45px;
+            border : rgb(255, 255, 255) 1px solid;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 3%;
+            margin-bottom: 10%;
+            border:1px solid #ccc;  
+            box-shadow: 0px 0px 10px rgb(255, 255, 255);
+            
+        }
+        
+
+        .box1  {
+            margin-top: 3%;
+            margin-bottom: 10%;
+            border : rgb(255, 255, 255) 1px solid;
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+
+
+        .box2 {
+            display: flex;
+            justify-content: center;
+            margin-top: 3%;
+            width: 100%;
+            margin-bottom: 10%;
+            border : rgb(255, 255, 255) 1px solid;
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+
+        .box2-modif-mobile {
+            font-size: 20px;
+        }
+
+        .box2-modif2-mobile {
+            margin-right: 100px;
+        }
+
+        .box2-modif3-mobile {
+            margin-right: 8px;
+
+        }
+
+        .box2-modif4-mobile {
+            margin-right: 35px;
+        }
+        
+        .box3 {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 3%;
+            width: 100%;
+            margin-bottom: 10%;
+            border : rgb(255, 255, 255) 1px solid;
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+
+        .box4 {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 3%;
+            width: 100%;
+            margin-bottom: 10%;
+            border : rgb(255, 255, 255) 1px solid;
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+
+        .box4-modif {
+            margin-top: -90px;
+        }
+
+        .cancelbtn, .signupbtn {
+          width: 100%
+        }
+        body{
+          font-family: arial, helvetica, sans-serif; 
+          background-color: #222;
+          color: rgba(255, 255, 255, 0.863);
+        }
+        
+        body, h1, h2, h3, p, figure {
+          margin: 0;
+        }
+        
+        * {
+          box-sizing: border-box; 
+        }
+        
+        .paddingtop {
+            padding-top: 2%;
+        }
+        
+        .center-mobile {
+        display: flex;
+        justify-content: center;
+        }
+        
+        
+        .bordertest {
+          border: red solid 3px;
+        }
+        
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+          }
+          
+          input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+          }
+          
+          hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+          }
+          
+          button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+          }
+          
+          button:hover {
+            opacity:1;
+          }
+          
+          .cancelbtn {
+            padding: 14px 20px;
+            background-color: #f44336;
+          }
+          
+          .cancelbtn, .signupbtn {
+            float: left;
+            width: 50%;
+          }
+          
+        
+          .sign {
+            padding: 16px;
+          }
+          
+          .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+          }
+
+
+
+
+          /* TAILLE X MARGING X PADDING */
+
+
+          .margT5-mobile {
+            margin-top: 5px;
+          }
+          
+          .margT10-mobile {
+            margin-top: 10px;
+          }
+
+          .margT25-mobile {
+            margin-top: 25px;
+          }
+
+          .margB5-mobile {
+            margin-bottom: 5px;
+          }
+
+          .margB10-mobile {
+            margin-bottom: 10px;
+          }
+
+          .margB25-mobile {
+            margin-bottom: 25px;
+          }
+
+          .margR5-mobile {
+            margin-right: 5px;
+          }
+
+          .margR10-mobile {
+            margin-right: 10px;
+          }
+
+          .margR25-mobile {
+            margin-right: 25px;
+          }
+
+          .margL5-mobile {
+            margin-left: 5px;
+          }
+
+          .margL10-mobile {
+            margin-left: 10px;
+          }
+
+          .margL25-mobile {
+            margin-left: 25px;
+          }
+
+
+
+
+
+     
+      
+      }
