@@ -9,13 +9,13 @@ import fr.eni.encheres.bll.ManagerUtilisateur;
 import fr.eni.encheres.bo.ArticleVendu;
 import fr.eni.encheres.bo.Categorie;
 import fr.eni.encheres.bo.Utilisateur;
-import fr.eni.encheres.exception.BusinessException;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ServletCreationArticle
@@ -50,8 +50,10 @@ public class ServletCreationArticle extends HttpServlet {
 		
 		try {
 			
+			HttpSession session = request.getSession();
+			int userId = (int) session.getAttribute("no_utilisateur");
 			ManagerUtilisateur mgUser = new ManagerUtilisateur();
-			Utilisateur user = mgUser.getUtilisateurById(1);
+			Utilisateur user = mgUser.getUtilisateurById(userId);
 			
 			ManagerCategorie mgCat = new ManagerCategorie();
 			Categorie cat = mgCat.selectCatByLibelle(request.getParameter("categorie"));
@@ -64,8 +66,8 @@ public class ServletCreationArticle extends HttpServlet {
 			LocalDate dateFinEncheres = LocalDate.parse(request.getParameter("dateFin"));
 			int prixInitial = Integer.parseInt(request.getParameter("prixInitial"));
 			int prixVente = Integer.parseInt(request.getParameter("prixVente"));
-			int idUtilisateur = Integer.parseInt(request.getParameter("categorie"));		
-			int idCategorie = Integer.parseInt(request.getParameter("categorie"));
+//			int idUtilisateur = Integer.parseInt(request.getParameter("categorie"));		
+//			int idCategorie = Integer.parseInt(request.getParameter("categorie"));
 			
 			article.setNomArticle(nomArticle);
 			article.setDescription(description);
@@ -78,6 +80,8 @@ public class ServletCreationArticle extends HttpServlet {
 			
 			ManagerArticleVendu mgArticle = new ManagerArticleVendu();
 			mgArticle.ajoutArticle(article);
+			
+			System.out.println(article.toString());
 			
 		} catch (Exception e) {
 			System.out.println("Echec ajout article");
