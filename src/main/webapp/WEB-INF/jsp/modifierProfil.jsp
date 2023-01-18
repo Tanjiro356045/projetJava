@@ -16,6 +16,7 @@
         
         <form id="form_creation_login" method="post" action="${pageContext.request.contextPath}/modifierProfil">
         
+        <h1> ${user.pseudo } </h1>
       <div class="sign">
         <h1>Modifier Mon Profil</h1>
         <p> Saisissez vos nouvelles informations.</p>
@@ -26,7 +27,7 @@
        	 <div class="gauche">
 
           <label for="prenom"><b>Prénom</b></label>
-          <input type="text" placeholder="Max - 30 Caractères" name="prenom" value="${user.pseudo }" required minlength="1" maxlength="30"/>
+          <input type="text" placeholder="Max - 30 Caractères" name="prenom" value="${user.prenom }" required minlength="1" maxlength="30"/>
 
           <label for="ville"><b>Ville</b></label>
           <input type="text" placeholder="Max - 50 Caractères" name="ville" value="${user.ville }" required minlength="1" maxlength="50"/>
