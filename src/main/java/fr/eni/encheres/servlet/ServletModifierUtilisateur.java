@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/modifierProfil")
+
 /**
  * Servlet implementation class ServletModifierUtilisateur
  */
@@ -36,6 +37,7 @@ public class ServletModifierUtilisateur extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		
 		//<td><a class="lienDetail" href="<%=request.getContextPath()%>/ServletModifierUtilisateur?detail=<%=utilisateur.getIdentifiant()%>&<%=dateFiltre%>">détail</a></td>
 		
 		//request.getParameter("detail") => id de ton utilisateur
@@ -52,7 +54,6 @@ public class ServletModifierUtilisateur extends HttpServlet {
 			throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-
 		Utilisateur userId = (Utilisateur) session.getAttribute("no_utilisateur");
 		
 		try {
