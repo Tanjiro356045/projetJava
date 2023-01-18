@@ -19,7 +19,7 @@ import fr.eni.encheres.exception.BusinessException;
 @WebServlet("/testAffichageAllArticles")
 public class testAllArticlesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+     
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -32,7 +32,7 @@ public class testAllArticlesServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
+	
 	ManagerArticleVendu mgArticle = new ManagerArticleVendu();
 	
 		try {
@@ -47,6 +47,7 @@ public class testAllArticlesServlet extends HttpServlet {
 		//Redirection vers la jsp
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/allArticles.jsp");
 		rd.forward(request, response);
+		
 	}
 
 	/**
