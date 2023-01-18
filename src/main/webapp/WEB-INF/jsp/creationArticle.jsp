@@ -37,12 +37,16 @@
 			<div class="input-field"> 
                 <div class="box2-cat">
                     <h1 class="center">Ajouter une catégorie</h1>
-          		<label class="box2-modif-mobile box2-modif2-mobile" for="categorie">Catégorie</label>
-         		    <select name="categorie" class="input margT25-mobile" id="categorie"> 
+                    
+<!--           		<label class="box2-modif-mobile box2-modif2-mobile" for="categorie">Catégorie</label>
+          		<input type="text" placeholder="Max - 50 Caractères" name="id Catégorie" required minlength="1" maxlength="50"> -->
+         		   
+          		    <select name="categorie" class="input margT25-mobile" id="categorie">
                         <% for(Categorie categorie : ManagerCategorie.selectAllCat()) { %>
             	        <option  value ="<%=categorie.getNoCategorie()%>"><%=categorie.getLibelle()%></option>
-            	        <% } %>
-          		        </select>
+            	        <% } %> 
+          		     </select>
+          		     
                 </div>
                         <br>
                 <div class="box2-debenchere">
@@ -62,14 +66,14 @@
 			<label for="prixInitial"><b class="center margT25-mobile">Mise à prix</b></label>
 			<input type="text" placeholder="Max - 10 Caractères" name="prixInitial" required minlength="1" maxlength="10">
 			
-			<label for="prixVente"><b class="center">Prix de vente</b></label>
-			<input type="text" placeholder="Max - 10 Caractères" name="prixVente" required minlength="1" maxlength="10">
+<!-- 			<label for="prixVente"><b class="center">Prix de vente</b></label>
+			<input type="text" placeholder="Max - 10 Caractères" name="prixVente" required minlength="1" maxlength="10"> -->
         </div>    
 			
 			<!-- <label for="utilisateur"><b class="center">N° utilisateur</b></label>
 			<input type="text" placeholder="Max - 30 Caractères" name="utilisateur" required minlength="1" maxlength="30"> -->
 
-            <div class="box4">
+            <!-- <div class="box4">
                 <h1 class="center">Retrait</h1>
     
                 <div class="input-field margT25-mobile">
@@ -83,7 +87,7 @@
                 <div class="input-field margT25-mobile">
                     <label class="center" for="ville">Ville</label> <input class="input" type="text" name="ville" id="ville" required>
                 </div>
-            </div>
+            </div> -->
         </div> 
             <!-- <input type="text" placeholder="Max - 10 Caractères" name="photo" required minlength="1" maxlength="10"> -->
         <div class="box4-modif">
