@@ -12,6 +12,7 @@
 <title>Enchere E.N.I - Afficher articles</title>
 </head>
 <body>
+<!-- bidon -->
 
 	<table>
 		<thead>
