@@ -76,7 +76,7 @@
           <button type="submit" class="signupbtn">Valider</button>
   
         
-          <button type="submit" href="<%=request.getContextPath()%>/accueilDeconnecter"> method="post"  class="signupbtn" action="${pageContext.request.contextPath}/supprimerProfil">Supprimer Mon Compte</button>
+          <button type="submit" href="<%=request.getContextPath()%>/accueilDeconnecter" method="post"  class="signupbtn" action="${pageContext.request.contextPath}/supprimerProfil">Supprimer Mon Compte</button>
         </div>
       </div>
     </form>		
