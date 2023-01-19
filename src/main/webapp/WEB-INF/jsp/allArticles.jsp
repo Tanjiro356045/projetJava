@@ -12,7 +12,8 @@
 <title>Enchere E.N.I - Afficher articles</title>
 </head>
 <body>
-<!-- bidon -->
+
+<h1>Liste des enchères</h1>
 
 	<table>
 		<thead>
@@ -38,7 +39,7 @@
 					for(ArticleVendu art : listeAllArticles){
 					%>
 						<tr>
-							<td><%=art.getUtilisateur().getPseudo() %></td>
+							<td><%=art.getUtilisateur().getPseudo()%></td>
 							<td><%=art.getCategorie().getLibelle() %></td>							
 							<td><%=art.getNomArticle() %></td>
 							<td><%=art.getDescription() %></td>
@@ -61,8 +62,7 @@
 							<%
 							} else{
 								%>	
-								<td>  <button type="submit" method="post"  class="signupbtn" action="${pageContext.request.contextPath}/modifArticleByUser">Modifier mon ecnhère</button> 
-								</td>
+								<td><button>Enchérir</button></td>
 							<%
 							}
 							%>	
@@ -77,7 +77,7 @@
 	</table>
 
 	<a href="<%=request.getContextPath()%>/accueilConnecter"><button type="submit">Retour accueil</button> </a>
-	
+	<a href="<%=request.getContextPath()%>/modifArticleByUser"><button type="submit">Modifier mes enchères</button> </a>	
 
 </body>
 </html>

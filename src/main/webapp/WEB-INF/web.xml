@@ -24,4 +24,14 @@
     <servlet-name>ServletModifArticleByUser</servlet-name>
     <url-pattern>/ServletModifArticleByUser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletSeDeconnecter</display-name>
+    <servlet-name>ServletSeDeconnecter</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletSeDeconnecter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletSeDeconnecter</servlet-name>
+    <url-pattern>/ServletSeDeconnecter</url-pattern>
+  </servlet-mapping>
 </web-app>
