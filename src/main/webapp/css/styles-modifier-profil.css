@@ -1,31 +1,43 @@
-  @media screen and (min-width: 1200px)  {
-    
+@media screen and (min-width: 1200px)  {
+
 body{
-	font-family: arial, helvetica, sans-serif; 
+    font-family: arial, helvetica, sans-serif; 
   background-color: #222;
   color: rgba(255, 255, 255, 0.863);
 }
 
+ 
+
 body, h1, h2, h3, p, figure {
-	margin: 0;
+    margin: 0;
 }
 
+ 
+
 * {
-	box-sizing: border-box; 
+    box-sizing: border-box; 
 }
+
+ 
 
 .paddingtop {
     padding-top: 2%;
 }
 
+ 
+
 .margt {
     margin-top: 5%;
 }
+
+ 
 
 .droite {
   width: 45%;
   margin-top: 5%;
 }
+
+ 
 
 .gauche {
   width: 45%;
@@ -38,13 +50,19 @@ text-align: center;
 padding-top: 100px;
 }
 
+ 
+
 .flexer {
   display: flex;
 }
 
+ 
+
 .bordertest {
   border: red solid 3px;
 }
+
+ 
 
 input[type=text], input[type=password] {
     width: 100%;
@@ -56,25 +74,31 @@ input[type=text], input[type=password] {
     height: 10px;
   }
 
+ 
+
   
   input[type=text]:focus, input[type=password]:focus {
     background-color: #ddd;
     outline: none;
   }
-  
+
   hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
   }
 
+ 
+
   .hr2 {
       width: 3px;
       height: 90%;
   }
-  
+
   .dif {
      width: 20%; 
   }
+
+ 
 
   button {
     background-color: #04AA6D;
@@ -86,85 +110,85 @@ input[type=text], input[type=password] {
     width: 100%;
     opacity: 0.9;
   }
-  
+
   button:hover {
     opacity:1;
   }
-  
+
   .cancelbtn {
     padding: 14px 20px;
     background-color: #ffd000b2;
   }
 
+ 
+
   .warning {
     background-color: #f44336;
   }
-  
+
   .cancelbtn, .signupbtn {
     float: left;
-    width: 34%;
+    width: 32%;
     height: 60px;
     margin-right: 4px;
   }
-  
+
+ 
 
   .sign {
     padding: 16px;
     width: 1000px;
   }
-  
+
   .clearfix::after {
     content: "";
     clear: both;
     display: table;
   }
-  
-  .clear-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 6%;
-  }
+
+
+ 
 
 }
-  
+
+ 
 
   @media screen and (max-width: 1200px) {
-    
+
     body {
       background-color: #222;
       color: rgba(255, 255, 255, 0.863);
     }
-   
+
     .cancelbtn, .signupbtn {
       width: 100%
     }
     body{
       font-family: arial, helvetica, sans-serif; 
     }
-    
+
     body, h1, h2, h3, p, figure {
       margin: 0;
     }
-    
+
     * {
       box-sizing: border-box; 
     }
-    
+
     .paddingtop {
         padding-top: 2%;
     }
-    
+
     .center {
     display: flex;
     justify-content: center;
     }
-    
-    
+
+
     .bordertest {
       border: red solid 3px;
     }
-    
+
     input[type=text], input[type=password] {
         width: 100%;
         padding: 15px;
@@ -173,18 +197,18 @@ input[type=text], input[type=password] {
         border: none;
         background: #f1f1f1;
       }
-      
+
       input[type=text]:focus, input[type=password]:focus {
         background-color: #ddd;
         outline: none;
       }
-      
+
       hr {
         border: 1px solid #f1f1f1;
         margin-bottom: 25px;
       }
-      
-    
+
+
       button {
         background-color: #04AA6D;
         color: white;
@@ -195,20 +219,22 @@ input[type=text], input[type=password] {
         width: 100%;
         opacity: 0.9;
       }
-      
+
       button:hover {
         opacity:1;
       }
-      
+
       .cancelbtn {
         padding: 14px 20px;
         background-color: #ffd000b2;
       }
 
+ 
+
       .warning {
         background-color: #f44336;
       }
-      
+
       .cancelbtn, .signupbtn {
         float: left;
         width: 32%;
@@ -219,20 +245,23 @@ input[type=text], input[type=password] {
         .ajust1 {
             margin-left: 5px;
         }
-    
+
       .sign {
         padding: 16px;
       }
-      
+
       .clearfix::after {
         content: "";
         clear: both;
         display: table;
       }
 
+ 
+
       
-    
+
+ 
 
   
-  
+
   }
