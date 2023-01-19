@@ -35,23 +35,19 @@ public class ServletSupprimerUtilisateur extends HttpServlet {
 		
 		
 		
-//		HttpSession session = request.getSession();
-//
-//		int userId = (int) session.getAttribute("no_utilisateur");
-//		
-//		System.out.println("id : " + userId);
-//
-//		ManagerUtilisateur managerUtilisateur = new ManagerUtilisateur();
-//		
-//		
+		HttpSession session = request.getSession();
+
+		int userId = (int) session.getAttribute("no_utilisateur");
 		
-		
-//		try {
-//			supprimerUtilisateur(2);
-//		} catch (BusinessException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		System.out.println("id : " + userId);
+
+
+		try {
+			supprimerUtilisateur(userId);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -60,22 +56,22 @@ public class ServletSupprimerUtilisateur extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
-
-		int userId = (int) session.getAttribute("no_utilisateur");
-		
-		System.out.println("id : " + userId);
-
-		ManagerUtilisateur managerUtilisateur = new ManagerUtilisateur();
-		
-		try {
-			
-			
-			supprimerUtilisateur(userId);
-		} catch (BusinessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		HttpSession session = request.getSession();
+//
+//		int userId = (int) session.getAttribute("no_utilisateur");
+//		
+//		System.out.println("id : " + userId);
+//
+//		ManagerUtilisateur managerUtilisateur = new ManagerUtilisateur();
+//		
+//		try {
+//			
+//			
+//			supprimerUtilisateur(userId);
+//		} catch (BusinessException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		doGet(request, response);
 	}
