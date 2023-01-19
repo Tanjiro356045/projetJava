@@ -12,6 +12,10 @@
 </head>
 <body>
 
+<h1>Mes articles en vente</h1>
+
+<h2>${user.pseudo}</h2>
+
 	<table>
 		<thead>
 			<tr>
@@ -21,7 +25,7 @@
 				<th>Début enchères</th>
 				<th>Fin enchères</th>
 				<th>Mise à prix</th>
-				<th>Action</th>
+				<th>Editer</th>
 			</tr>
 		</thead>
 		
@@ -34,7 +38,6 @@
 					for(ArticleVendu art : listeAllArticles){
 					%>
 						<tr>
-							<td><%=art.getUtilisateur().getPseudo() %></td>
 							<td><%=art.getCategorie().getLibelle() %></td>							
 							<td><%=art.getNomArticle() %></td>
 							<td><%=art.getDescription() %></td>
@@ -73,13 +76,7 @@
 			%>
 	</table>
 
-	<a href="<%=request.getContextPath()%>/accueilConnecter"><button type="submit">Retour accueil</button> </a>
-	 
-
-
-
-
-
+	<a href="<%=request.getContextPath()%>/allArticles"><button type="submit">Retour aux enchères</button> </a>
 
 </body>
 </html>

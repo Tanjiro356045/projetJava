@@ -12,7 +12,9 @@ import java.io.IOException;
 import java.util.List;
 
 import fr.eni.encheres.bll.ManagerArticleVendu;
+import fr.eni.encheres.bll.ManagerUtilisateur;
 import fr.eni.encheres.bo.ArticleVendu;
+import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.exception.BusinessException;
 
 /**
@@ -36,6 +38,7 @@ public class ServletModifArticleByUser extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ManagerArticleVendu mgArticle = new ManagerArticleVendu();
+		ManagerUtilisateur managerUtilisateur = new ManagerUtilisateur();
 		
 		HttpSession session = request.getSession();
 		int userId = (int) session.getAttribute("no_utilisateur");
@@ -44,6 +47,9 @@ public class ServletModifArticleByUser extends HttpServlet {
 			List<ArticleVendu> listeArticlesByUser = mgArticle.getListeArticlesByUser(userId);
 			System.out.println(listeArticlesByUser);
 			request.setAttribute("listeArticles", listeArticlesByUser);
+			
+			Utilisateur user = managerUtilisateur.getUtilisateurById(userId);
+			request.setAttribute("user", user);
 		} catch (BusinessException e) {
 			System.out.println("Echec remontée liste d'articles par utilisateur - selectByUser");
 			e.printStackTrace();
