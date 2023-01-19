@@ -37,6 +37,7 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 												+ "	WHERE no_article = ?;";
 	private static final String INSERT_ARTICLE = "INSERT INTO ARTICLES_VENDUS (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie) VALUES (? ,?, ?, ?, ?, ?, ?, ?);";
 	private static final String DELETE_ARTICLE = "DELETE FROM ARTICLES_VENDUS WHERE no_article = ?;";
+	private static final String SELECT_BY_USER = "SELECT * FROM ARTICLES_VENDUS WHERE no_utilisateur = ?;";
 
 	@Override
 	public List<ArticleVendu> selectAll() {
@@ -209,6 +210,28 @@ public class ArticleVenduDAOJdbcImpl implements ArticleVenduDAO{
 //			businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
 //			throw businessException;
 		}
+	}
+
+	@Override
+	public List<ArticleVendu> selectByUser(int noUser) {
+		List<ArticleVendu> listeArticles = new ArrayList<ArticleVendu>();
+		try (Connection cnx = ConnectionProvider.getConnection()) {
+			PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_USER);
+			pstmt.setInt(1, noUser);
+			ResultSet rs = pstmt.executeQuery();
+			ArticleVendu article = null;
+			
+			while (rs.next()) {
+				article = ArticleBuilder(rs);
+				listeArticles.add(article);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			//businessException.ajouterErreur(CodesResultatDAL.LECTURE_LISTE_ECHEC);
+			//throw businessException;
+		}
+		return listeArticles;
 	}
 	
 }

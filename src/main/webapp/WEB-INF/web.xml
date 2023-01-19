@@ -14,4 +14,14 @@
     <servlet-name>ServletAllArticles</servlet-name>
     <url-pattern>/ServletAllArticles</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletModifArticleByUser</display-name>
+    <servlet-name>ServletModifArticleByUser</servlet-name>
+    <servlet-class>fr.eni.encheres.servlet.ServletModifArticleByUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletModifArticleByUser</servlet-name>
+    <url-pattern>/ServletModifArticleByUser</url-pattern>
+  </servlet-mapping>
 </web-app>

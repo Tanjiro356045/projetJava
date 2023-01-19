@@ -55,17 +55,30 @@ public class ServletCreationArticle extends HttpServlet {
 			ManagerUtilisateur mgUser = new ManagerUtilisateur();
 			Utilisateur user = mgUser.getUtilisateurById(userId);
 			
+			System.out.println(user.toString());
+			
 			ManagerCategorie mgCat = new ManagerCategorie();
 			Categorie cat = mgCat.selectCatByLibelle(request.getParameter("categorie"));
+			
+			System.out.println(cat.toString());
 			
 			ArticleVendu article = new ArticleVendu();
 			
 			String nomArticle = request.getParameter("article");
+			System.out.println(nomArticle.toString());
+			
 			String description = request.getParameter("description");
+			System.out.println(description.toString());
+			
 			LocalDate dateDebutEncheres = LocalDate.parse(request.getParameter("dateDebut"));
+			System.out.println(dateDebutEncheres.toString());
+			
 			LocalDate dateFinEncheres = LocalDate.parse(request.getParameter("dateFin"));
+			System.out.println(dateFinEncheres.toString());
+			
 			int prixInitial = Integer.parseInt(request.getParameter("prixInitial"));
-			int prixVente = Integer.parseInt(request.getParameter("prixVente"));
+			System.out.println(prixInitial);
+			
 //			int idUtilisateur = Integer.parseInt(request.getParameter("categorie"));		
 //			int idCategorie = Integer.parseInt(request.getParameter("categorie"));
 			
@@ -74,9 +87,10 @@ public class ServletCreationArticle extends HttpServlet {
 			article.setDateDebutEncheres(dateDebutEncheres);
 			article.setDateFinEncheres(dateFinEncheres);
 			article.setMiseAPrix(prixInitial);
-			article.setPrixVente(prixVente);
 			article.setUtilisateur(user);
 			article.setCategorie(cat);
+			
+			System.out.println(article.toString());
 			
 			ManagerArticleVendu mgArticle = new ManagerArticleVendu();
 			mgArticle.ajoutArticle(article);
