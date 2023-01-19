@@ -57,7 +57,9 @@
 							<%
 							} else{
 								%>	
-								<td> <button type = "submit">Enchérir</button> </td>
+								<td>
+									 <button type="submit" method="post"  class="signupbtn" action="${pageContext.request.contextPath}/modifArticleByUser">Modifier Article</button>
+								</td>
 							<%
 							}
 							%>	
@@ -72,6 +74,7 @@
 	</table>
 
 	<a href="<%=request.getContextPath()%>/accueilConnecter"><button type="submit">Retour accueil</button> </a>
+	 
 
 
 
