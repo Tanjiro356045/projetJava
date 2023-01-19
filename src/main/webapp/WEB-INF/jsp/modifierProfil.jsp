@@ -78,12 +78,6 @@
             <button type="submit" class="signupbtn warning">Supprimer mon Profil</button>
             </form>
         </div>
-      
-
-
-        </section>
-    </div> 
-	
-   </div>
+     
 </body>
 </html>
