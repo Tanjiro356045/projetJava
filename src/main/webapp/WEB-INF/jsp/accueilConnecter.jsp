@@ -26,7 +26,7 @@
 					<li><a href="<%=request.getContextPath()%>/allArticles">Enchères</a></li>
 					<li><a href="<%=request.getContextPath()%>/ajoutArticle">Vendre un article</a></li>
 					<li><a href="<%=request.getContextPath()%>/pageProfil">Mon profil</a></li>
-					<li><a href="<%=request.getContextPath()%>/accueilDeconnecter">Déconnexion</a></li>
+					<li><a href="<%=request.getContextPath()%>/seDeconnecter">Déconnexion</a></li>
 				  </ul>
 				  <button class="nav-toggler">
 					<span></span>
