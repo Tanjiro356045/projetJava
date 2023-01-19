@@ -74,12 +74,15 @@
         <div class="clearfix">
           <a href="<%=request.getContextPath()%>/pageProfil"><button type="button" class="cancelbtn">Revenir</button></a>
           <button type="submit" class="signupbtn">Valider</button>
-  
-        
-          <button type="submit" href="<%=request.getContextPath()%>/accueilDeconnecter" method="post"  class="signupbtn" action="${pageContext.request.contextPath}/supprimerProfil">Supprimer Mon Compte</button>
         </div>
+   </form>	
+        
+          <form action="<%=request.getContextPath()%>/supprimerProfil"method="get">
+          <button type="submit" class="bouton">Supprimer mon Profil</button>
+		</form>
+        
       </div>
-    </form>		
+   	
    </div>
 </section> 		
 </body>
