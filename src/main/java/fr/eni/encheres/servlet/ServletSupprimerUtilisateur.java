@@ -79,7 +79,6 @@ public class ServletSupprimerUtilisateur extends HttpServlet {
 		
 		doGet(request, response);
 	}
-	//m
 	
 	
 	
