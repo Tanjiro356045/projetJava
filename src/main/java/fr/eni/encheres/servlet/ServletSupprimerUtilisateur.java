@@ -6,6 +6,7 @@ import fr.eni.encheres.bll.ManagerUtilisateur;
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.exception.BusinessException;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,6 +15,8 @@ import jakarta.servlet.http.HttpSession;
 /**
  * Servlet implementation class ServletSupprimerUtilisateur
  */
+
+@WebServlet("/supprimerProfil")
 public class ServletSupprimerUtilisateur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
