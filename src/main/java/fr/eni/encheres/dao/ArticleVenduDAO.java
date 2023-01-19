@@ -25,5 +25,7 @@ public interface ArticleVenduDAO {
 	public void insert(ArticleVendu data);
 
 	public void delete(int noArticle);
+	
+	public List<ArticleVendu> selectByUser(int noUser) ;
 
 }

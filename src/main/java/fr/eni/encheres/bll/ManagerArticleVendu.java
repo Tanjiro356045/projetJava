@@ -20,8 +20,6 @@ public class ManagerArticleVendu {
 	
 	ArticleVenduDAO articleVenduDAO = DAOFactory.getArticleVenduDAO();
 	
-	
-	
 	/**
 	 * @param libelle 
 	 * @throws BusinessException 
@@ -40,6 +38,10 @@ public class ManagerArticleVendu {
 		return this.articleVenduDAO.selectAll();
 	}
 	
+	
+	public List<ArticleVendu> getListeArticlesByUser(int noUser) throws BusinessException{
+		return this.articleVenduDAO.selectByUser(noUser);
+	}
 	
 	
 }

@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@1,600&display=swap" rel="stylesheet">
     <link href="<%=request.getContextPath()%>/css/styles-inscription.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Créer une nouvelle enchère</title>
 </head>
 <body>
 
@@ -43,7 +43,7 @@
          		   
           		    <select name="categorie" class="input margT25-mobile" id="categorie">
                         <% for(Categorie categorie : ManagerCategorie.selectAllCat()) { %>
-            	        <option  value ="<%=categorie.getNoCategorie()%>"><%=categorie.getLibelle()%></option>
+            	        <option  value ="<%=categorie.getLibelle()%>"><%=categorie.getLibelle()%></option>
             	        <% } %> 
           		     </select>
           		     

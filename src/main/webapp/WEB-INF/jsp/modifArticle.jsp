@@ -2,29 +2,26 @@
 <%@page import="fr.eni.encheres.bo.Utilisateur"%>
 <%@page import="fr.eni.encheres.bo.Categorie"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Enchere E.N.I - Afficher articles</title>
+<title>Modifier mes enchères</title>
 </head>
 <body>
 
 	<table>
 		<thead>
 			<tr>
-				<th>Vendeur</th>
 				<th>Catégorie</th>				
 				<th>Article</th>
 				<th>Description</th>
 				<th>Début enchères</th>
 				<th>Fin enchères</th>
 				<th>Mise à prix</th>
-				<th>Prix de vente</th>
-				<th>Enchérir</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		
@@ -60,7 +57,8 @@
 							<%
 							} else{
 								%>	
-								<td>  <button type="submit" method="post"  class="signupbtn" action="${pageContext.request.contextPath}/modifArticleByUser">Modifier mon ecnhère</button> 
+								<td>
+									 <button type="submit" method="post"  class="signupbtn" action="${pageContext.request.contextPath}/modifArticleByUser">Modifier Article</button>
 								</td>
 							<%
 							}
@@ -76,7 +74,12 @@
 	</table>
 
 	<a href="<%=request.getContextPath()%>/accueilConnecter"><button type="submit">Retour accueil</button> </a>
-	
+	 
+
+
+
+
+
 
 </body>
 </html>

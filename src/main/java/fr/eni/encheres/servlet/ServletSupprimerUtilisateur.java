@@ -78,7 +78,6 @@ public class ServletSupprimerUtilisateur extends HttpServlet {
 	
 	
 	
-	
 	protected void supprimerUtilisateur(int noUtilisateur) throws BusinessException {
 		
 		ManagerUtilisateur mngr = new ManagerUtilisateur();
