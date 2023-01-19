@@ -6,6 +6,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"content="width=device-width, initial-scale=1.">
+        <link href="<%=request.getContextPath()%>/css/styles-page-profil.css" rel="stylesheet">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <script src="https://kit.fontawesome.com/1cbc331981.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="styles/style.css">
@@ -22,19 +23,19 @@
    		
 	<div class = paragraphes>
 
-		<p> Pseudo : ${user.pseudo }</p>
-		<p> Nom : ${user.nom }</p>
-		<p> Prenom : ${user.prenom }</p>
-		<p> Email : ${user.email }</p>
-		<p> Telephone : ${user.noTelephone }</p>
-		<p> Rue : ${user.rue }</p>
-		<p> Code Postal : ${user.codePostal }</p>
-		<p> Ville : ${user.ville }</p>
+		<p> <b>Pseudo :</b> ${user.pseudo }</p>
+		<p> <b>Nom :</b> ${user.nom }</p>
+		<p> <b>Prenom :</b> ${user.prenom }</p>
+		<p> <b>Email :</b> ${user.email }</p>
+		<p> <b>Telephone :</b> ${user.noTelephone }</p>
+		<p> <b>Rue :</b> ${user.rue }</p>
+		<p> <b>Code Postal :</b> ${user.codePostal }</p>
+		<p> <b>Ville :</b> ${user.ville }</p>
 		
 	</div>
 		<button onclick="location.href='<%=request.getContextPath()%>/modifierProfil'" type="button" class="cancelbtn">Modifier</button>
 		
-		<a href="<%=request.getContextPath()%>/accueilConnecter"><button type="submit">Retour accueil</button> </a>
+		<a href="<%=request.getContextPath()%>/accueilConnecter"><button type="submit" class="return">Retour accueil</button> </a>
 		
 		
 </body>
