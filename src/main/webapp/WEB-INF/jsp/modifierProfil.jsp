@@ -72,8 +72,9 @@
         <p> En créant un compte, vous acceptez nos <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
         <div class="clearfix">
-          <button type="button" class="cancelbtn">Revenir</button>
+          <a href="<%=request.getContextPath()%>/pageProfil"><button type="button" class="cancelbtn">Revenir</button></a>
           <button type="submit" class="signupbtn">Valider</button>
+          <button type="submit" class="signupbtn">Supprimer Mon Compte</button>
         </div>
       </div>
     </form>		
