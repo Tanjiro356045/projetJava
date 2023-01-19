@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="fr.eni.encheres.bo.Utilisateur"%>
+<%@page import="fr.eni.encheres.bo.Utilisateur"%> -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,14 +16,14 @@
         
         <form id="form_creation_login" method="post" action="${pageContext.request.contextPath}/modifierProfil">
         
-        <h1> ${user.pseudo } </h1>
+        <!-- <h1> ${user.pseudo } </h1> -->
       <div class="sign">
         <h1>Modifier Mon Profil</h1>
-        <p> Saisissez vos nouvelles informations.</p>
-        <hr>
+        <hr class="margt">
 
-    <section class="LoggingForm">
-        <div class="flexer">
+    <section class="LoggingForm"> 
+
+    <div class="flexer">
        	 <div class="gauche">
 
           <label for="prenom"><b>Prénom</b></label>
@@ -37,11 +37,12 @@
 
           <label for="cdp"><b>Entrez code postal</b></label>
           <input type="text" placeholder="Max - 10 Caractères" value="${user.codePostal }" name="code_postal" required minlength="1" maxlength="10"/>
-
+         </div>
 
         <div class="dif">
-        <hr class="hr2">
         </div>
+
+        
 
 
         
@@ -65,25 +66,23 @@
       </div>
     </div>
 
-        <label>
-          <input type="checkbox" checked="checked" name="souvenir" style="margin-bottom:15px"> souvenir de moi 
-        </label>
 
-        <p> En créant un compte, vous acceptez nos <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
 
         <div class="clearfix">
-          <a href="<%=request.getContextPath()%>/pageProfil"><button type="button" class="cancelbtn">Revenir</button></a>
+          <a href="<%=request.getContextPath()%>/pageProfil"><button type="button" class="cancelbtn ajust1">Revenir</button></a>
           <button type="submit" class="signupbtn">Valider</button>
+          </form>		
+          <form action="<%=request.getContextPath()%>/supprimerProfil" method="get">
+            <button type="submit" class="signupbtn warning">Supprimer mon Profil</button>
+            </form>
         </div>
-   </form>	
-        
-          <form action="<%=request.getContextPath()%>/supprimerProfil"method="get">
-          <button type="submit" class="signupbtn warning">Supprimer mon Profil</button>
-		</form>
-        
-      </div>
-   	
+      
+
+
+        </section>
+    </div> 
+	
    </div>
-</section> 		
 </body>
 </html>
