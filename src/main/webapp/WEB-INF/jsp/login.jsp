@@ -25,7 +25,7 @@
           <input type="text" placeholder="Max - 30 Caractères" name="pseudo" required minlength="1" maxlength="30">
 		<div class="form2">		
 		  <label for="mdp"><b>Mot de passe</b></label>
-		  <input type="text" placeholder="Max - 30 Caractères" name="mdp" required minlength="1" maxlength="30">
+		  <input type="password" placeholder="Max - 30 Caractères" name="mdp" required minlength="1" maxlength="30">
 		 </div> 
         </div>
 
