@@ -16,7 +16,7 @@
         
         <form id="form_creation_login" method="post" action="${pageContext.request.contextPath}/modifierProfil">
         
-        <!-- <h1> ${user.pseudo } </h1> -->
+        <h1> ${user.pseudo } </h1> 
       <div class="sign">
         <h1>Modifier Mon Profil</h1>
         <hr class="margt">
