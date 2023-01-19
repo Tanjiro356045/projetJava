@@ -39,6 +39,7 @@ public class ServletSupprimerUtilisateur extends HttpServlet {
 		
 		System.out.println("userId " + userId);
 		
+		
 		try {
 			supprimerUtilisateur(userId);
 		} catch (BusinessException e) {
