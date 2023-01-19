@@ -33,10 +33,10 @@
           <input type="text" placeholder="Max - 50 Caractères" name="ville" value="${user.ville }" required minlength="1" maxlength="50"/>
 
           <label for="rue"><b>Adresse</b></label>
-          <input type="text" placeholder="Max - 30 Caractères" name="adresse" value="${user.rue }"  required minlength="1" maxlength="30"/>
+          <input type="text" placeholder="Max - 30 Caractères" name="rue" value="${user.rue }"  required minlength="1" maxlength="30"/>
 
           <label for="cdp"><b>Entrez code postal</b></label>
-          <input type="text" placeholder="Max - 10 Caractères" value="${user.codePostal }" name="codepostal" required minlength="1" maxlength="10"/>
+          <input type="text" placeholder="Max - 10 Caractères" value="${user.codePostal }" name="code_postal" required minlength="1" maxlength="10"/>
 
 
         <div class="dif">
@@ -54,7 +54,7 @@
         <input type="text" placeholder="Max - 50 Caractères" name="email" value="${user.email }" required minlength="1" maxlength="50"/>
 
         <label for="phone"><b>Téléphone</b></label>
-        <input type="text" placeholder="Max - 15 Caractères" value="${user.noTelephone }" name="telephone" required minlength="1" maxlength="15" />
+        <input type="text" placeholder="Max - 15 Caractères" value="${user.noTelephone }" name="no_telephone" required minlength="1" maxlength="15" />
 
         
         <label for="psw"><b>Mot de passe actuel</b></label>
