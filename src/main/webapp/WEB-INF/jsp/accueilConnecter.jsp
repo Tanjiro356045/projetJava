@@ -15,7 +15,7 @@
 <body>
 
 
-<!-- NAVBAR 1 --> 
+<!-- NAVBAR  --> 
     <div class="content" id="home"></div>
 		<header class="header-area">
 			<div class="navbar-area">
