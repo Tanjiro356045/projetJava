@@ -21,7 +21,7 @@
 				<th>Début enchères</th>
 				<th>Fin enchères</th>
 				<th>Mise à prix</th>
-				<th>Action</th>
+				<th>Editer</th>
 			</tr>
 		</thead>
 		
