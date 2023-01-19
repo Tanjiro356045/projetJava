@@ -37,6 +37,7 @@
 <input type="text" placeholder="Max - 30 Caractères" name="prenom" value="${user.prenom }" required minlength="1" maxlength="30"/>
 
  
+ 
 
           <label for="ville"><b>Ville</b></label>
 <input type="text" placeholder="Max - 50 Caractères" name="ville" value="${user.ville }" required minlength="1" maxlength="50"/>
