@@ -5,14 +5,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="<%=request.getContextPath()%>/css/styles-all-article.css" rel="stylesheet">
 <title>Enchere E.N.I - Afficher articles</title>
 </head>
 <body>
 
+    <div class="content">
 <h1>Liste des enchères</h1>
 
 	<table>
@@ -30,10 +35,12 @@
 			</tr>
 		</thead>
 		
+        <div class="margt"></div>
 			<%
 			List<ArticleVendu> listeAllArticles = (List<ArticleVendu>) request.getAttribute("listeArticles");
 			if(listeAllArticles != null && listeAllArticles.size()>0){				
 			%>
+            </div>    
 				<tbody>
 					<%
 					for(ArticleVendu art : listeAllArticles){
@@ -58,14 +65,18 @@
 							%>
 							<% if(art.getPrixVente()!=0){
 								%>
-							<td><i>Enchère clôturée</i></td>
+                                <!-- <td><i>Enchère clôturée</i></td> -->
+							        <%
+							        } else{
+							    	%>	
+								<td><button class="btn-color2">Enchérir</button></td>
+                           
 							<%
-							} else{
-								%>	
-								<td><button>Enchérir</button></td>
-							<%
+                            
+
 							}
 							%>	
+                            
 						</tr>
 					<%
 					}
@@ -76,8 +87,10 @@
 			%>
 	</table>
 
-	<a href="<%=request.getContextPath()%>/accueilConnecter"><button type="submit">Retour accueil</button> </a>
-	<a href="<%=request.getContextPath()%>/modifArticleByUser"><button type="submit">Modifier mes enchères</button> </a>	
-
+    <div class="flexer button-mobile">
+	<a  href="<%=request.getContextPath()%>/accueilConnecter"><button class="btn-color1" type="submit">Retour accueil</button> </a>
+	<a  href="<%=request.getContextPath()%>/modifArticleByUser"><button class="btn-color2" type="submit">Modifier mes enchères</button> </a>	
+    </div>
+</div>
 </body>
 </html>

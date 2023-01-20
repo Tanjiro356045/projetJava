@@ -9,12 +9,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Modifier mes enchères</title>
+<link href="<%=request.getContextPath()%>/css/styles-modifier-article.css" rel="stylesheet">
 </head>
 <body>
 
-<h1>Mes articles en vente</h1>
+<h1 class="center">Mes articles en vente</h1>
 
-<h2>${user.pseudo}</h2>
+<h2 class="center">${user.pseudo}</h2>
 
 	<table>
 		<thead>
@@ -75,8 +76,9 @@
 			}
 			%>
 	</table>
-
-	<a href="<%=request.getContextPath()%>/allArticles"><button type="submit">Retour aux enchères</button> </a>
+<div class="center">
+	<a href="<%=request.getContextPath()%>/allArticles"><button class="btn-color1" type="submit">Retour aux enchères</button> </a>
+</div>
 
 </body>
 </html>
