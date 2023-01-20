@@ -10,6 +10,51 @@
 
   }
 
+	.img1 {
+	background-image: url("https://cdn20.pamono.com/p/s/9/2/920517_tdlwq222t7/fauteuil-style-louis-xvi-france.jpg");
+	max-width: 100%;
+	height: 100%;
+	background-size: cover;
+	
+	}
+	
+	.img2 {
+	
+	background-image: url("https://content.26in.fr/p/imagebank/1/6/9/16987.jpg ");
+	max-width: 100%;
+	height: 100%;
+	background-size: cover;
+	}
+	
+	.img3 {
+	background-image: url("https://www.gdegdesign.com/16198-thickbox_default/table-basse-design-bois-gigogne-moana.jpg");
+	max-width: 100%;
+	height: 100%;
+	background-size: cover;
+	}
+	
+	.img4 {
+	background-image: url("https://collections.louvre.fr/media/cache/small/0000000021/0000062370/0000052001_OG.JPG");
+	max-width: 100%;
+	height: 100%;
+	background-size: cover;
+	}
+	
+	.img5 {
+	background-image: url("https://la-boutique-du-paysagiste.fr/476-large_default/hachette-canadienne-tete-800g-mche-hickory.jpg");
+	max-width: 100%;
+	height: 100%;
+	background-size: cover;
+	}
+	
+	.img6 {
+	background-image: url("https://static.actu.fr/uploads/2023/01/les-livreurs-indelicats-ont-abandonne-les-appareils-menagers-a-recycler-en-pleine-nature.jpg");
+	max-width: 100%;
+	height: 100%;
+	background-size: cover;
+	}
+	
+	
 .flexer {
   display: flex;
   justify-content: center;
@@ -131,6 +176,7 @@ h1 {
   display: flex;
   width: 100%;
   align-items: center;
+  margin-bottom: 5%;
   justify-content: center;
 }
 .box3 {
@@ -300,6 +346,50 @@ h1 {
         font-size:  60px;
     
     }
+    
+    	.img1 {
+	background-image: url("https://cdn20.pamono.com/p/s/9/2/920517_tdlwq222t7/fauteuil-style-louis-xvi-france.jpg");
+	max-width: 100%;
+	height: 100%;
+	background-size: cover;
+	
+	}
+	
+	.img2 {
+	
+	background-image: url("https://content.26in.fr/p/imagebank/1/6/9/16987.jpg ");
+	max-width: 100%;
+	height: 100%;
+	background-size: cover;
+	}
+	
+	.img3 {
+	background-image: url("https://www.gdegdesign.com/16198-thickbox_default/table-basse-design-bois-gigogne-moana.jpg");
+	max-width: 100%;
+	height: 100%;
+	background-size: cover;
+	}
+	
+	.img4 {
+	background-image: url("https://collections.louvre.fr/media/cache/small/0000000021/0000062370/0000052001_OG.JPG");
+	max-width: 100%;
+	height: 100%;
+	background-size: cover;
+	}
+	
+	.img5 {
+	background-image: url("https://la-boutique-du-paysagiste.fr/476-large_default/hachette-canadienne-tete-800g-mche-hickory.jpg");
+	max-width: 100%;
+	height: 100%;
+	background-size: cover;
+	}
+	
+	.img6 {
+	background-image: url("https://static.actu.fr/uploads/2023/01/les-livreurs-indelicats-ont-abandonne-les-appareils-menagers-a-recycler-en-pleine-nature.jpg");
+	max-width: 100%;
+	height: 100%;
+	background-size: cover;
+	}
     
     .nav-toggler{
 	  display: block;
@@ -476,6 +566,7 @@ h1 {
       }
       .box2-mobile {
         flex-direction: column;
+        margin-bottom: 5%;
       }
       .box3-mobile {
         flex-direction: column;

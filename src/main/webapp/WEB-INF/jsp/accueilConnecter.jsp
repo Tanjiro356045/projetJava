@@ -112,22 +112,17 @@
  
 
 <div class="box1 box1-mobile">
-    <div class="testarticle"> </div>
-    <div class="testarticle"> </div>
-    <div class="testarticle"> </div>
+    <div class="testarticle img1"> </div>
+    <div class="testarticle img2"> </div>
+    <div class="testarticle img3"> </div>
 </div>    
 
 <div class="box2 box2-mobile">
-    <div class="testarticle"> </div>
-    <div class="testarticle"> </div>
-    <div class="testarticle"> </div>
+    <div class="testarticle img4"> </div>
+    <div class="testarticle img5"> </div>
+    <div class="testarticle img6"> </div>
 </div>  
 
-<div class="box3 box3-mobile">
-    <div class="testarticle"> </div>
-    <div class="testarticle"> </div>
-    <div class="testarticle"> </div>
-</div>
     
          
     
